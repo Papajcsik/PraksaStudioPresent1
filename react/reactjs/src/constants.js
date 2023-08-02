@@ -6,6 +6,7 @@ black: '#000000',
 almostBlack: '#000000f0',
 grey: '#252525',
 white: '#FFF',
+almostWhite: '#ffffff82',
 }
 
 export default colors;

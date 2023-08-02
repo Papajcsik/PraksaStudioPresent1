@@ -2,12 +2,16 @@ import React from 'react'
 import colors from './constants'
 import {useRef} from 'react';
 import RedPressable from './RedPressable';
+import HorizontalSpacer from './HorizontalSpacer';
+import { useState } from 'react';
 
 
 export default function HomePage(props) {
 
   const Width = useRef(window.innerWidth);
   const Height = useRef(window.innerHeight);
+
+  const plateImage = require('./images/bgImage1.png');
 
   console.log('height: ', Height.current);
   console.log('width: ', Width.current);
@@ -18,6 +22,19 @@ export default function HomePage(props) {
   {name: 'Schwein', pic: require('./images/jose-ignacio-pompe-s-Z-h0fEiBM-unsplash.jpg')},
   {name: 'Rind', pic: require('./images/luis-santoyo-IePWXTF3-0Y-unsplash.jpg')},
   ]
+  const awardArray = [
+  {name: 'Tollit argumentum genau Saepe lobortis', pic: require('./images/nagrada1.png')},
+  {name: 'Schneewittchen denique', pic: require('./images/nagrada2.png')},
+  {name: 'Grimms Märchen expetenda', pic: require('./images/nagrada3.png')},
+  {name: 'Mettwurst mei ullum gloriatur.', pic: require('./images/nagrada4.png')},
+  ];
+
+  const commentArray = [
+    { name: 'Maria Kartofeln', position:'', comment: 'Sprechen Sie deutsch aliquip ex ea commodo consequat. Wiener Schnitzel aute irure dolor in reprehenderit Guten Tag mollit anim Stuttgart.'},
+    { name: 'Halling Tobias', position:'Koch', comment: 'Wiener Schnitzel amet, consectetur Handtasche elit, sed do eiusmod tempor Stuttgart ut labore et dolore magna  Luftballons Ut Turnbeutel nostrud exercitation ullamco .'},
+    { name: 'Rene Weinstein', position:'', comment: 'Achtung fur atine indoctum complectitur HugoClub Mate mea meliore denique nominavi id. Ohrwurm expetenda nam an, his ei Reise euismod assentior.'},
+
+  ];
 
   const styles = {
   navButton: {
@@ -40,6 +57,17 @@ export default function HomePage(props) {
     flexDirection: 'row',
 
   },
+  smallSection: {
+
+    width: "100%",
+    backgroundColor: colors.almostBlack,
+    display: 'flex',
+    height: Height.current/1.4, 
+    flexDirection: 'column', 
+    justifyContent: 'center',
+    alignItems: 'center',  
+
+  },
   fiftyPercentLeft: {
     height: "100%",
     width: "50%",
@@ -60,6 +88,7 @@ export default function HomePage(props) {
     height: "80%",
     width: "60%",
     textAlign: 'left',
+
   },
   listItem: {
     fontSize: Height.current/45, 
@@ -68,8 +97,52 @@ export default function HomePage(props) {
     marginTop: 30,
 
   },
+  footer: {
+    height: Height.current/5,
+    width: Width.current,
+    backgroundColor: colors.redNavBG,
+    display: 'flex',
+    flexDirection: 'row',
+    justifyContent: 'space-evenly',
+    alignItems: 'center',
+
+  },
+  footerColumn: {
+    height: "100%",
+    width: "25%",
+    display: 'flex',
+    flexDirection: 'column',
+    justifyContent: 'space-evenly',
+    alignItems: 'center',
+    textAlign: 'left',
+
+  },
  
 }
+
+  const [focusedElement, setFocusedElement] =  useState(1);
+
+ const getCardHeight = (num) => {
+  if(num === focusedElement)
+  {
+    return "80%"
+  }
+  return "70%";
+ };
+
+ const scroll = (direction) => {
+
+  if(direction === 'left' && focusedElement > 0)
+  {
+    return setFocusedElement(prev=> prev-1);
+  }
+  if(direction === 'right' && focusedElement < 2)
+  {
+    return setFocusedElement(prev=> prev+1);
+  }
+  return;
+
+ };
 
     
   return (
@@ -77,7 +150,7 @@ export default function HomePage(props) {
       <div style={{ height: '75%', width: "100%",  justifyContent: 'center', alignItems: 'center', backgroundColor: colors.redNavBG, borderWidth: 0}}>
         <div style={{ height: "100%", width: "80%", flexDirection: 'row', alignSelf: 'center', justifyContent: 'space-evenly', paddingLeft: 300, backgroundColor: colors.redNavBG, borderWidth: 0}}>
            
-            <img src={require('./images/logo.png')} alt='logo' style={{position: 'absolute', height: Height.current/8, aspectRatio: 1, left: Width.current/12 , }}/>
+            <img src={require('./images/logo.png')} alt='logo' style={{position: 'absolute', height: Height.current/6, aspectRatio: 1, left: Width.current/12 , }}/>
            
             <button onClick={()=>{}}         
               style={styles.navButton}>
@@ -122,9 +195,9 @@ export default function HomePage(props) {
         </div>
     
       </div>
-      <div style={{ height:'25%', width: "100%",  backgroundColor: colors.grey, display: 'flex', alignItems: 'center', justifyContent: 'flex-end', }}>
+      <div style={{ height:'35%', width: "100%",  backgroundColor: colors.grey, display: 'flex', alignItems: 'center', justifyContent: 'flex-end', }}>
         <img src={require('./images/clock.png')}  alt='clock' style={{height: "60%", aspectRatio: 1.2 }}/>
-          <div style={{ height:'100%', width: "40%", display: 'flex', alignItems: 'center', marginLeft: 10,  backgroundColor: colors.grey, color: colors.white }}>
+          <div style={{ height:'100%', width: "40%", fontSize: Height.current/65, display: 'flex', alignItems: 'center', marginLeft: 10,  backgroundColor: colors.grey, color: colors.white }}>
 
             Opentime:   Di. - Fr.: 07:00-13:00  und 15:00-18:30.    Sa.:	 07:30	-	12:30
 
@@ -136,7 +209,7 @@ export default function HomePage(props) {
         
         <div style={{height: '50%', width:"35%", position: 'absolute', backgroundColor: '#00000050' ,  top: Height.current/4, display: 'flex', justifyContent: 'flex-end'}}>
           <div style={{height:'100%', width: '50%', }}>
-            <div style={{color: colors.white, fontWeight: 750, fontSize: Height.current/25, display: 'flex', textAlign: 'left', justifyContent: 'flex-start', marginTop: 150, letterSpacing: 2  }}>
+            <div style={{color: colors.white, fontWeight: 750, fontSize: Height.current/25, display: 'flex', textAlign: 'left', justifyContent: 'flex-start', marginTop: 50, letterSpacing: 2  }}>
               Heiko Brath <br/>
               Metzgermeister
             </div>
@@ -158,27 +231,30 @@ export default function HomePage(props) {
         
         <div style={styles.fiftyPercentLeft}>
           <div style={styles.thirdyPercent}>
-              <div style={{fontSize: Height.current/22, color: colors.white, fontWeight: 750, marginTop: 150}}>
+              <div style={{fontSize: Height.current/22, color: colors.white, fontWeight: 750, marginTop: 15}}>
                   Dry aged
               </div>
               <div style={{fontSize: Height.current/35, color: colors.white, fontWeight: 650, marginBottom: 70, }}>
                   Alte Wutz, Dry Aged
               </div>
 
-              <div style={{color: colors.white, fontWeight: 300, fontSize: Height.current/50, maxWidth: '80%', display: 'flex', textAlign: 'left', justifyContent: 'flex-start', marginTop: 30, flexWrap: 'wrap', letterSpacing: 1  }}>
+              <div style={{color: colors.white, fontWeight: 300, fontSize: Height.current/50, maxWidth: '80%', display: 'flex', textAlign: 'left', justifyContent: 'flex-start', marginTop: 20, flexWrap: 'wrap', letterSpacing: 1  }}>
                 Halt amet, consectetur Handtasche elit, sed do eiusmod tempor Stuttgart ut labore et dolore magna 99 Luftballons Ut enim ad minim veniam, Turnbeutel nostrud exercitation ullamco laboris nisi Sprechen Sie deutsch aliquip ex ea commodo consequat. Wiener Schnitzel aute irure dolor in reprehenderit Guten Tag mollit anim Stuttgart.<br/><br/>
                 id latine indoctum complectitur HugoClub Mate mea meliore denique nominavi id. Ohrwurm expetenda nam an, his ei Reise euismod assentior.
               </div>
 
-              <RedPressable color={colors.redButtons} props={'Dry Aged'}/>
-              <RedPressable color={colors.redButtons} props={'Alte Wurtz'}/>
+              <div style={{display: 'flex', height: "10%", width: "80%", flexDirection: 'row', justifyContent: 'space-around'}}>
+                <RedPressable color={colors.redButtons} props={'Dry Aged'}/>
+                <RedPressable color={colors.redButtons} props={'Alte Wurtz'}/>
+              </div>
+              
 
 
           </div>
         </div>
         
         <div style={styles.fiftyPercentRight}>
-            <div style={{...styles.thirdyPercent, ...{display: 'flex',  flexDirection: 'column', justifyContent: 'space-between', marginTop: 50,}}}>
+            <div style={{...styles.thirdyPercent, ...{display: 'flex',  flexDirection: 'column', justifyContent: 'space-between', marginTop: 10,}}}>
                 <div style={{ height: '65%', width: "100%",}}>
                  
                   <img src={require('./images/287e4a29fb95622355c7023ec0f765ff@2x 1.png')}  alt='meat1' style={{height: "100%", width: "100%", }}/>
@@ -204,11 +280,11 @@ export default function HomePage(props) {
       <div style={{...styles.section, ...{ backgroundColor: colors.redButtons}}}>
         <div style={styles.fiftyPercentLeft}>
           <div style={styles.thirdyPercent}>
-            <div style={{fontSize: Height.current/22, color: colors.white, fontWeight: 750, marginTop: 150, marginBottom: 100}}>
+            <div style={{fontSize: Height.current/22, color: colors.white, fontWeight: 750, marginTop: 10, marginBottom: 50}}>
                  Buchen Sie den <br/>
                  Grillkurs jetzt
             </div>
-            <ul style={{height: "30%", width: '60%'}}>
+            <ul style={{height: "30%", width: '60%', marginBottom: 50,}}>
               <li style={styles.listItem}>professioneller Lehrer</li>
               <li style={styles.listItem}>ausgezeichneter Metzger</li>
               <li style={styles.listItem}>1 Tag</li>
@@ -216,7 +292,10 @@ export default function HomePage(props) {
 
             </ul>
 
-            <RedPressable color={colors.white} props={'Grillkurs'}/>
+              <div style={{display: 'flex', height: "10%", width: "70%", flexDirection: 'row', justifyContent: 'center'}}>
+
+                <RedPressable color={colors.white} props={'Grillkurs'}/>
+              </div>
 
 
           </div>
@@ -232,21 +311,21 @@ export default function HomePage(props) {
 
       <div style={{...styles.section, ...{display: 'flex', alignItems: 'center', flexDirection: 'column' }}}>
         
-        <div style={{fontSize: Height.current/22, color: colors.white, fontWeight: 750, marginTop: 150, marginBottom: 0}}>
+        <div style={{fontSize: Height.current/22, color: colors.white, fontWeight: 750, marginTop: 70, marginBottom: 0}}>
                   Das Handwerk
         </div>
 
-        <div style={{fontSize: Height.current/30, color: colors.white, fontWeight: 550, marginTop: 50, marginBottom: 50}}>
+        <div style={{fontSize: Height.current/30, color: colors.white, fontWeight: 550, marginTop: 10, marginBottom: 50}}>
                   alles über unsere Hausgemachte Produkte
         </div>
 
-        <div style={{fontSize: Height.current/60, color: colors.white, fontWeight: 350, marginTop: 50, maxWidth: '40%', letterSpacing: 1, textAlign: 'center', }}>
+        <div style={{fontSize: Height.current/55, color: colors.white, fontWeight: 350, marginTop: 20, maxWidth: '40%', letterSpacing: 1, textAlign: 'center', }}>
                   Halt amet, consectetur Handtasche elit, sed do eiusmod tempor Stuttgart ut labore et dolore magna 99 Luftballons Ut enim ad minim veniam, Turnbeutel nostrud exercitation ullamco laboris nisi Sprechen Sie deutsch aliquip ex ea commodo consequat.
                  <br/><br/> Wiener Schnitzel aute irure dolor in Guten Tag mollit anim Stuttgart. <br/><br/>
                   id latine indoctum complectitur HugoClub Mate mea meliore denique nominavi id. Ohrwurm expetenda nam an, his ei Reise euismod assentior
         </div>
 
-        <div style={{height:"10%", width: "30%"}}>
+        <div style={{height:"10%", width: "30%", marginTop: 50,}}>
           <RedPressable color={colors.redButtons} props={'Das Handwerk'}/>
         </div>
 
@@ -256,20 +335,19 @@ export default function HomePage(props) {
       </div>
       <div style={{...styles.section, display: 'flex', flexDirection: 'column', alignItems: 'center'}}>
 
-        <div style={{height: "10%", width: "60%", display: 'flex', flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center'}}>
-          <div style={{height: 2, opacity: 1, width: '45%', backgroundColor: colors.grey}}></div>
-            <img src={require('./images/Group1.png')} style={{height: "100%", aspectRatio: 1, }}/>
-          <div style={{height: 2, opacity: 1, width: '45%', backgroundColor: colors.grey}}></div>
-        </div>
+        <HorizontalSpacer/>
 
-          <div style={{height: "40%", width: "70%", marginTop: 250, display: 'flex', flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center'}}>
+          <div style={{height: "40%", width: "70%", marginTop: 100, display: 'flex', flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center'}}>
           {
             foodArray.map((e, i)=>(
-              <div key={e.name} style={{height: "100%", width: "20%", }}>
-                  <img src={e.pic} alt='i' style={{width:"100%", height: "100%"}}/>
-                  <div style={{position: 'absolute', fontSize: Height.current/60, backgroundColor: '#00000050',  color: colors.white, height:"40%", width: "100%",  }}>
-                     {e.name}
+              <div key={e.name} style={{height: "100%", aspectRatio: 1, margin: 2 }}>
+              <div style={{height: "100%", width: "100%", backgroundImage: `url(${e.pic})`, backgroundSize: 'cover', backgroundRepeat: 'no-repeat', display: 'flex', alignItems: 'center'}}>
+                  <div style={{position: 'relative', zIndex: 2, fontSize: Height.current/50, backgroundColor: '#00000080',  color: colors.white, height:"40%", width: "100%", display: 'flex', alignItems: 'center', justifyContent: 'center'  }}>
+                      {e.name}
                   </div>
+                 </div>
+                  {/* <img src={e.pic} alt='i' style={{width:"100%", height: "100%", zIndex: 1}}/> */}
+                    
               </div>        
             ))
           }
@@ -277,12 +355,203 @@ export default function HomePage(props) {
 
       </div>
 
-      
+      <div style={{...styles.section, ...{ backgroundColor: colors.redButtons}}}>
+        <div style={styles.fiftyPercentLeft}>
+          <img src={require('./images/4541cc99083f618a22b772228f8a9698@2x 1.jpg')} style={{height:"100%", width: "100%"}} alt='fuszer'/>
+        </div>
+        <div style={{...styles.fiftyPercentRight, ...{display: 'flex', alignItems: 'center'}}}>
+            <div style={{...styles.thirdyPercent, ...{ marginLeft: 100, height: "60%", display: 'flex', flexDirection: 'column', justifyContent: 'space-evenly' }}}>
 
 
+                  <div style={{fontSize: Height.current/24, color: colors.white, fontWeight: 750,  }}>
+                            Custome spices for your meat
+                  </div>
+
+                  <div style={{fontSize: Height.current/29, color: colors.white, fontWeight: 550, }}>
+                            Turnbeutel nostrud exercitation ullamco <br/>
+                            Sprechen Sie deutsch
+                  </div>
+
+                  <div style={{fontSize: Height.current/50, color: colors.white, fontWeight: 350, marginTop: 10, maxWidth: '90%', letterSpacing: 1,  }}>
+                            Odio principes iracundia Müller Rice pri. Ut vel solum mandamus, Kartoffelkopf natum adversarium ei ius, diam Schmetterling honestatis eum.<br/><br/>
+                            Wiener Schnitzel amet, consectetur Handtasche elit, sed do eiusmod tempor Stuttgart ut labore et dolore magna 99 Luftballons Ut enim ad minim veniam, Turnbeutel nostrud exercitation ullamco laboris nisi Sprechen Sie deutsch aliquip ex ea commodo consequat. 
+                  </div>
+                                      
+            </div>
+        </div>
+
+      </div>
+
+      <div style={{ ...styles.smallSection, ...{ 
+                  backgroundImage: `url(${plateImage})` , backgroundSize: 'contain', backgroundRepeat: 'no-repeat', }}}>
+          
+            <div style={{fontSize: Height.current/24, color: colors.white, fontWeight: 750,  }}>
+                Fleischversand
+            </div>
+            <div style={{height: "10%", width:"30%"}}>
+              <RedPressable color={colors.white} props={'Jetzt bestellen'}/>
+            </div>
+            
+      </div>
+
+      <div style={{ ...styles.smallSection, ...{ }}}>
+        <div style={{height: '80%', width: "100%", display: 'flex', flexDirection: 'row'}}>
+          <div style={{...styles.fiftyPercentLeft, ...{}}}>
+           
+           <div style={{...styles.thirdyPercent, ...{display: 'flex', alignItems: 'center'}}}>
+            <img src={require('./images/genussnetz logo 1.png')} style={{height: "50%", aspectRatio: 2}} alt='genustnetz'/>
+           </div>
+
+          </div>
+          <div style={{...styles.fiftyPercentRight, ...{}}}>
+            <div style={styles.thirdyPercent}>
+              
+              <div style={{fontSize: Height.current/22, color: colors.white, fontWeight: 750, marginTop: 70, marginBottom: 0}}>
+                  Metzgerei Brath ist Mitglied <br/>
+                  im Genussnetzwerk
+              </div>
+              <div style={{height: "30%", width: "80%", display: 'flex', flexDirection: 'row', justifyContent: 'flex-start'}}>
+                <RedPressable color={colors.redButtons} props={'Gehen zu site'}/>
+              </div>
+
+            </div>
+          </div>
+        </div>
+        
+
+        <HorizontalSpacer/>
+      </div>
 
 
-    
+      <div style={{ ...styles.smallSection, ...{ }}}>
+        <div style={{height: '80%', width: "100%", display: 'flex', flexDirection: 'row'}}>
+          <div style={{...styles.fiftyPercentLeft, ...{width:"35%", display: 'flex', alignItems: 'center', }}}>
+            
+            <div style={{fontSize: Height.current/22, color: colors.white, fontWeight: 750, }}>
+                  Auszeichnungen
+              </div>
+           
+          </div>
+          <div style={{...styles.fiftyPercentRight, ...{width:'65%', display: 'flex', alignItems: 'center',}}}>
+            
+            <div style={{height: "40%", width: "70%", marginLeft: 20, display: 'flex', flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center',}}>
+              {
+                awardArray.map((e, i)=>(
+                  <div key={e.name} style={{height: "90%", aspectRatio: 1, margin: 20, }}>
+                  <div style={{height: "100%", width: "100%", backgroundImage: `url(${e.pic})`, backgroundSize: 'contain', backgroundRepeat: 'no-repeat', display: 'flex', }}>
+                      
+                    </div>
+                      {/* <img src={e.pic} alt='i' style={{width:"100%", height: "100%", zIndex: 1}}/> */}
+                      <div style={{position: 'relative', zIndex: 2, fontSize: Height.current/50, marginTop: 15, color: colors.almostWhite, height:"40%", width: "100%", display: 'flex', alignItems: 'center', justifyContent: 'center'  }}>
+                          {e.name}
+                      </div>
+                  </div>        
+                ))
+              }
+            </div>
+
+          </div>
+        </div>
+        
+
+        <HorizontalSpacer/>
+
+      </div>
+
+
+      <div style={{...styles.section , ...{height: Height.current, flexDirection: 'column', alignItems: 'center'}}}>
+             <div style={{position: 'relative', zIndex: 2, fontSize: Height.current/60, marginTop: 5, color: colors.almostWhite, height:"10%", width: "100%", display: 'flex', alignItems: 'center', justifyContent: 'center'  }}>
+                Empfehlungs
+             </div>
+             <div style={{fontSize: Height.current/24, color: colors.white, fontWeight: 750, marginBottom: 25, }}>
+                         Was die Leute über uns sagen   
+              </div>
+
+              <div style={{height:'65%', width: "80%", display: 'flex', flexDirection: 'row', justifyContent: 'space-evenly', alignItems: 'center' }}>
+                  <button onClick={()=>{scroll('left')}} style={{height:"6%", aspectRatio: 1.5, backgroundColor: 'transparent', borderWidth: 0 }}>
+                    <img src={require('./images/goLeft.png')}  style={{height:"100%", width:"100%"}} alt='left'/>
+                  </button>
+                  {
+                    commentArray.map((e, i)=>(
+                      <div style={{height: getCardHeight(i), aspectRatio: 1 , backgroundColor: colors.grey, display: 'flex', flexDirection: 'column',  alignItems: 'center' }}>
+                        { i === 1 &&
+                            <div style={{height:"30%", width:"30%", paddingTop: 20,  }}>
+                                <img src={require('./images/grillkurs_icon.png')} style={{height: "70%", aspectRatio: 1, }} alt='grill'/>
+
+                                <img src={require('./images/zvezdice.png')} style={{height: "30%",aspectRatio: 3, marginTop: 10, }} alt='stars'/>
+                            </div>
+                        }
+                        { i !== 1 &&
+                          <div style={{height:"20%", width:"30%", paddingTop: 20,  }}>  
+                          </div>
+                        }
+
+
+                        <div style={{height: '60%', width: "100%", display: 'flex', flexDirection: 'column', justifyContent: 'space-evenly', alignItems: 'center'}}>
+                              <div style={{fontSize: Height.current/60, color: colors.white, fontWeight: 250, marginTop: 50, maxWidth: '90%', letterSpacing: 1, marginBottom: 20,  }}>
+                              {e.comment}         
+                              </div>
+                              <div style={{fontSize: Height.current/40, color: colors.white, fontWeight: 350, }}>
+                              {e.name} 
+                              </div>
+                              <div style={{fontSize: Height.current/50, color: colors.white, fontWeight: 150, }}>
+                               {e.position}
+                              </div>
+
+                        </div>
+                        { i === 1 &&
+                          <div style={{position: 'relative', height: "10%", aspectRatio: 1, left: 150, marginTop: 70 }}>
+                            <img src={require('./images/znak.png')} style={{height:'100%', width:"100%"}} alt='znak' />
+                          </div>
+                        }
+                      </div>
+                    ))
+                  }
+                  <button onClick={()=>{scroll('right')}} style={{height:"6%", aspectRatio: 1.5, backgroundColor: 'transparent', borderWidth: 0 }}>
+                    <img src={require('./images/goRight.png')}  style={{height:"100%", width:"100%"}} alt='left'/>
+                  </button>
+              </div>
+            <div style={{height: "10%", width:"30%", marginBottom: 20}}>
+              <RedPressable color={colors.redButtons} props={'Alle Berichte'}/>
+            </div>              
+
+      </div>
+
+      <div style={styles.footer}>
+          <div style={{...styles.footerColumn, ...{}}}>
+              <div style={{fontSize: Height.current/60, color: colors.white, fontWeight: 250, marginTop: 2, maxWidth: '90%', letterSpacing: 1, marginBottom: 2,  }}>
+              Klauprechtstraße  25 <br/>
+              76137 Karlsruhe, Germany
+              </div>
+              <div style={{fontSize: Height.current/60, color: colors.white, fontWeight: 250, marginTop:2, maxWidth: '90%', letterSpacing: 1, marginBottom: 2,  }}>
+              +49 721 358060
+              </div>
+              <div style={{fontSize: Height.current/60, color: colors.white, fontWeight: 250, marginTop: 2, maxWidth: '90%', letterSpacing: 1, marginBottom: 2,  }}>
+              info@partyservice-brath.de
+              </div>
+
+          </div>
+          <div style={styles.footerColumn}>
+                  <img src={require('./images/logo.png')} style={{height:"90%", aspectRatio: 1, }} alt='logo'/>
+          </div>
+          <div  style={{...styles.footerColumn, ...{flexDirection: 'row', justifyContent: 'center'}}}>
+                <div style={{fontSize: Height.current/50, color: colors.white, fontWeight: 250, marginTop: 2, marginRight: 10,  maxWidth: '90%', letterSpacing: 1, marginBottom: 2,  }}>
+                  Besuchen Sie uns auf:   
+                </div>
+                <img src={require('./images/Group 628 1.png')} style={{height:"30%", aspectRatio: 4, }} alt='logo'/>
+
+          </div>
+      </div>
+      <div style={{height:"30%", width: '100%', backgroundColor: colors.deepRed, display: 'flex', flexDirection: 'row', justifyContent: 'space-between'}}>
+                <div style={{fontSize: Height.current/65, color: colors.almostWhite, fontWeight: 250, marginTop: 2, marginLeft: 150,  maxWidth: '90%', letterSpacing: 1, marginBottom: 2,  }}>
+                  © 2020 by Metzgerei Heiko Brath  GmbH, Deutschland                
+                </div>
+                <div style={{fontSize: Height.current/65, color: colors.almostWhite, fontWeight: 250, marginTop: 2, marginRight: 150,  maxWidth: '90%', letterSpacing: 1, marginBottom: 2,  }}>
+                Code and design by StudioPresent
+                </div>
+      </div>
+
+
     </div>
   )
 }

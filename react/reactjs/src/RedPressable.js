@@ -19,9 +19,9 @@ const RedPressable = ({color, props}) => {
 
   return (
 
-    <button style={{height: Height.current/18, width: "35%", backgroundColor: color, 
-                    borderRadius: 50, marginTop: 100, color: getColor(color), fontSize: Height.current/65, letterSpacing: 1, fontWeight: 550,
-                    marginLeft: 30, }}>
+    <button style={{height: Height.current/18, width: "40%", backgroundColor: color, borderWidth: 0,
+                    borderRadius: 50, marginTop: 50, color: getColor(color), fontSize: Height.current/65, letterSpacing: 1, fontWeight: 550,
+                    marginLeft: 0, }}>
         {props}
     </button>
   )
