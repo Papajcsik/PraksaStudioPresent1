@@ -1,0 +1,38 @@
+$redNavBG: #B50014;
+$redButtons: #A62120;
+$deepRed: #66000B;
+$black: #000000;
+$grey: #252525;
+$white: #FFF;
+
+$navHeight: 100px;
+
+body {
+    background-color: $black;
+
+}
+.nav {
+    background-color: $redNavBG;
+    height: 50px;
+    width: 500px;
+    padding: 0px;
+    margin: 0px;
+   // z-index: 0;
+   border-width: 20px;
+   border-color: $white
+        
+}
+.nav1 {
+    @extend .nav;
+    //z-index: 1;
+    height: 25px;
+    //width: 500px;
+}
+.nav2 {
+    @extend .nav;
+    height: 14px;
+    //width: 500px;
+    //z-index: 1;
+    background-color: $grey;
+}
+

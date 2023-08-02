@@ -1,0 +1,22 @@
+body {
+  background-color: #000000;
+}
+
+.nav, .nav2, .nav1 {
+  background-color: #B50014;
+  height: 50px;
+  width: 500px;
+  padding: 0px;
+  margin: 0px;
+  border-width: 20px;
+  border-color: #FFF;
+}
+
+.nav1 {
+  height: 25px;
+}
+
+.nav2 {
+  height: 14px;
+  background-color: #252525;
+}/*# sourceMappingURL=styles.css.map */
