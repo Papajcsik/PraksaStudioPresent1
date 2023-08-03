@@ -4,12 +4,17 @@ import {useRef} from 'react';
 import RedPressable from './RedPressable';
 import HorizontalSpacer from './HorizontalSpacer';
 import { useState } from 'react';
+import CustomSlider from './CustomSlider';
 
 
 export default function HomePage(props) {
 
   const Width = useRef(window.innerWidth);
   const Height = useRef(window.innerHeight);
+
+    const [isHover, setIsHover] = useState(false);
+    const [hamburgerMenu, setHamburgerMenu] = useState(false);
+
 
   const plateImage = require('./images/bgImage1.png');
 
@@ -40,14 +45,18 @@ export default function HomePage(props) {
   navButton: {
     height: "100%",
     width:"8%",
-    backgroundColor: 'transparent',
+    // backgroundColor: 'transparent',
     color: colors.white,
     fontWeight: 'bold',
     fontSize: Height.current/70,
     borderWidth: 0,
-    marginLeft: "2%",
+    marginLeft: 2,
     //display: 'flex',
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'center',
     flexWrap: 'nowrap',
+    backgroundColor: 'transparent' ,
   },
   section: {
     height: Height.current/1.2,
@@ -99,7 +108,7 @@ export default function HomePage(props) {
   },
   footer: {
     height: Height.current/5,
-    width: Width.current,
+    width: "100%",
     backgroundColor: colors.redNavBG,
     display: 'flex',
     flexDirection: 'row',
@@ -115,6 +124,15 @@ export default function HomePage(props) {
     justifyContent: 'space-evenly',
     alignItems: 'center',
     textAlign: 'left',
+
+  },
+  hamburger: {
+    height: "8%",
+    aspectRatio: 4, 
+    maxWidth: "80%",
+    minWidth: Width.current/20 , 
+    backgroundColor: colors.white, 
+    borderRadius: 10, 
 
   },
  
@@ -148,79 +166,122 @@ export default function HomePage(props) {
   return (
     <div style={{ height: Height.current/10, width: "100%", backgroundColor: 'transparent', }}>
       <div style={{ height: '75%', width: "100%",  justifyContent: 'center', alignItems: 'center', backgroundColor: colors.redNavBG, borderWidth: 0}}>
-        <div style={{ height: "100%", width: "80%", flexDirection: 'row', alignSelf: 'center', justifyContent: 'space-evenly', paddingLeft: 300, backgroundColor: colors.redNavBG, borderWidth: 0}}>
+        <div style={{ height: "100%", width: '75%', display: 'flex', flexDirection: 'row', alignSelf: 'center', justifyContent: 'flex-start', paddingLeft: "25%", backgroundColor: colors.redNavBG, borderWidth: 0}}>
            
-            <img src={require('./images/logo.png')} alt='logo' style={{position: 'absolute', height: Height.current/6, aspectRatio: 1, left: Width.current/12 , }}/>
+            <img src={require('./images/logo.png')} alt='logo' style={{position: 'absolute', height: Height.current/6, aspectRatio: 1, left: Width.current/12 , zIndex: 10, }}/>
+            
+           { Width.current >= 1000 &&
+              <div style={{height:'100%', width:"90%", display: 'flex', flexDirection: 'row', justifyContent: 'space-evenly', alignSelf: 'flex-end', alignItems: 'center', flexWrap: 'nowrap'}}>
+              <button onClick={()=>{}}         
+                style={styles.navButton}>
+                      die Metzgerei
+              </button>
+              <button onClick={()=>{}}         
+                style={styles.navButton}>
+                      Dry Aged
+              </button>
+              <button onClick={()=>{}}         
+                style={styles.navButton}>
+                      Fleischversand
+              </button>
+              <button onClick={()=>{}}         
+                style={styles.navButton}>
+                      Events/Kurse
+              </button>
+              <button onClick={()=>{}}         
+                style={styles.navButton}>
+                      Partyservice
+              </button>
+              <button onClick={()=>{}}         
+                style={styles.navButton}>
+                      Tagesessen 
+              </button>
+              <button onClick={()=>{}}         
+                style={styles.navButton}>
+                      Impressum 
+              </button>
+              <button onClick={()=>{}}         
+                style={styles.navButton}>
+                      Kontakt 
+              </button>
+            
+              <button onClick={()=>{}}         
+                style={{...styles.navButton, ...{display: 'flex', flexDirection: 'row', justifyContent: 'space-evenly', alignItems: 'center'}}}>
+                    <img src={require('./images/Frame.png')}  alt='pdf' style={{height: "30%", aspectRatio: 1, paddingRight: 10,  }}/>
+
+                      download 
+              </button>
+            </div>
+           }
+           { Width.current < 1000 &&
+              <div style={{height:'100%', width:"90%", display: 'flex', flexDirection: 'row', justifyContent: 'flex-end', alignItems: 'center', flexWrap: 'nowrap'}}>
+                <button onClick={()=>{}}         
+                style={{...styles.navButton, ...{display: 'flex', flexDirection: 'row', justifyContent: 'space-evenly', alignItems: 'center', marginRight:"15%"}}}>
+                    <img src={require('./images/Frame.png')}  alt='pdf' style={{height: "30%", aspectRatio: 1, paddingRight: 10,  }}/>
+
+                      download 
+              </button>
+                <button onClick={()=>{setHamburgerMenu(!hamburgerMenu)}} onMouseEnter={()=>{setIsHover(true)}} onMouseLeave={()=>{setIsHover(false)}}     
+                  style={{...styles.navButton, ...{flexDirection: 'column', justifyContent: 'space-evenly', backgroundColor: (isHover ? colors.white : 'transparent' ) }}}>
+                  <div style={{...styles.hamburger, ...{backgroundColor: (isHover ?  colors.redNavBG : colors.white ),  }}}></div>
+                  <div style={{...styles.hamburger, ...{backgroundColor: (isHover ?  colors.redNavBG : colors.white ),  }}}></div>
+                  <div style={{...styles.hamburger, ...{backgroundColor: (isHover ?  colors.redNavBG : colors.white ),  }}}></div>
+                </button>
+              </div>
+           }
            
-            <button onClick={()=>{}}         
-              style={styles.navButton}>
-                    die Metzgerei
-            </button>
-            <button onClick={()=>{}}         
-              style={styles.navButton}>
-                    Dry Aged
-            </button>
-            <button onClick={()=>{}}         
-              style={styles.navButton}>
-                    Fleischversand
-            </button>
-            <button onClick={()=>{}}         
-              style={styles.navButton}>
-                    Events/Kurse
-            </button>
-            <button onClick={()=>{}}         
-              style={styles.navButton}>
-                    Partyservice
-            </button>
-            <button onClick={()=>{}}         
-              style={styles.navButton}>
-                    Tagesessen 
-            </button>
-            <button onClick={()=>{}}         
-              style={styles.navButton}>
-                    Impressum 
-            </button>
-            <button onClick={()=>{}}         
-              style={styles.navButton}>
-                    Kontakt 
-            </button>
-
- 
-            <button onClick={()=>{}}         
-              style={styles.navButton}>
-                  <img src={require('./images/Frame.png')}  alt='pdf' style={{height: "30%", aspectRatio: 1, paddingRight: 10, }}/>
-
-                     download 
-            </button>
         </div>
     
       </div>
       <div style={{ height:'35%', width: "100%",  backgroundColor: colors.grey, display: 'flex', alignItems: 'center', justifyContent: 'flex-end', }}>
-        <img src={require('./images/clock.png')}  alt='clock' style={{height: "60%", aspectRatio: 1.2 }}/>
+        <img src={require('./images/clock.png')}  alt='clock' style={{height: "60%", aspectRatio: 1.2, zIndex: 10, }}/>
           <div style={{ height:'100%', width: "40%", fontSize: Height.current/65, display: 'flex', alignItems: 'center', marginLeft: 10,  backgroundColor: colors.grey, color: colors.white }}>
 
             Opentime:   Di. - Fr.: 07:00-13:00  und 15:00-18:30.    Sa.:	 07:30	-	12:30
 
          </div>
-    
+         { hamburgerMenu &&
+            <div style={{position: 'absolute', right: 10, top: "8%", height: '50%', maxWidth: "40%", aspectRatio: 1, backgroundColor: colors.redNavBG, display: 'flex', flexDirection: 'column', justifyContent: 'space-evenly', alignItems: 'center', zIndex: 20,}}>
+              <button onClick={()=>{setHamburgerMenu(false)}}         
+                style={styles.navButton}>
+                      die Metzgerei
+              </button>
+              <button onClick={()=>{setHamburgerMenu(false)}}         
+                style={styles.navButton}>
+                      Dry Aged
+              </button>
+              <button onClick={()=>{setHamburgerMenu(false)}}         
+                style={styles.navButton}>
+                      Fleischversand
+              </button>
+              <buttonon Click={()=>{setHamburgerMenu(false)}}         
+                style={styles.navButton}>
+                      Events/Kurse
+              </buttonon>
+              <button onClick={()=>{setHamburgerMenu(false)}}         
+                style={styles.navButton}>
+                      Partyservice
+              </button>
+              <button onClick={()=>{setHamburgerMenu(false)}}         
+                style={styles.navButton}>
+                      Tagesessen 
+              </button>
+              <button onClick={()=>{setHamburgerMenu(false)}}         
+                style={styles.navButton}>
+                      Impressum 
+              </button>
+              <button onClick={()=>{setHamburgerMenu(false)}}         
+                style={styles.navButton}>
+                      Kontakt 
+              </button>
+            </div> 
+           }
       </div>
 
-      <div style={{height: Height.current/1.2, width:"100%", }}>
-        
-        <div style={{height: '50%', width:"35%", position: 'absolute', backgroundColor: '#00000050' ,  top: Height.current/4, display: 'flex', justifyContent: 'flex-end'}}>
-          <div style={{height:'100%', width: '50%', }}>
-            <div style={{color: colors.white, fontWeight: 750, fontSize: Height.current/25, display: 'flex', textAlign: 'left', justifyContent: 'flex-start', marginTop: 50, letterSpacing: 2  }}>
-              Heiko Brath <br/>
-              Metzgermeister
-            </div>
-            
-            <div style={{color: colors.white, fontWeight: 300, fontSize: Height.current/50, maxWidth: '80%', display: 'flex', textAlign: 'left', justifyContent: 'flex-start', marginTop: 30, flexWrap: 'wrap', letterSpacing: 1  }}>
-              Deutsches Ipsum Dolor deserunt dissentias Grimms Märchen et. Tollit argumentum ius an. Pfannkuchen lobortis elaboraret per ne, nam Aperol Spritz probatus pertinax.
-            </div>
-          </div>
-        </div>
+      <div style={{height: Height.current/1.2, width:"100%", display: 'flex', justifyContent: 'center', alignItems: 'center', backgroundColor: colors.almostBlack }}>
 
-        <img src={require('./images/image 14.jpg')}  alt='boss' style={{height: "100%", width: "100%", }}/>
+          <CustomSlider />
+
       </div>
 
       <div>
@@ -340,7 +401,7 @@ export default function HomePage(props) {
           <div style={{height: "40%", width: "70%", marginTop: 100, display: 'flex', flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center'}}>
           {
             foodArray.map((e, i)=>(
-              <div key={e.name} style={{height: "100%", aspectRatio: 1, margin: 2 }}>
+              <div key={e.name} style={{height: "100%", maxWidth:"25%", aspectRatio: 1, margin: 2 }}>
               <div style={{height: "100%", width: "100%", backgroundImage: `url(${e.pic})`, backgroundSize: 'cover', backgroundRepeat: 'no-repeat', display: 'flex', alignItems: 'center'}}>
                   <div style={{position: 'relative', zIndex: 2, fontSize: Height.current/50, backgroundColor: '#00000080',  color: colors.white, height:"40%", width: "100%", display: 'flex', alignItems: 'center', justifyContent: 'center'  }}>
                       {e.name}
@@ -437,7 +498,7 @@ export default function HomePage(props) {
             <div style={{height: "40%", width: "70%", marginLeft: 20, display: 'flex', flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center',}}>
               {
                 awardArray.map((e, i)=>(
-                  <div key={e.name} style={{height: "90%", aspectRatio: 1, margin: 20, }}>
+                  <div key={e.name} style={{height: "90%", maxWidth:"25%", aspectRatio: 1, margin: 20, }}>
                   <div style={{height: "100%", width: "100%", backgroundImage: `url(${e.pic})`, backgroundSize: 'contain', backgroundRepeat: 'no-repeat', display: 'flex', }}>
                       
                     </div>
@@ -473,7 +534,7 @@ export default function HomePage(props) {
                   </button>
                   {
                     commentArray.map((e, i)=>(
-                      <div style={{height: getCardHeight(i), aspectRatio: 1 , backgroundColor: colors.grey, display: 'flex', flexDirection: 'column',  alignItems: 'center' }}>
+                      <div style={{height: getCardHeight(i), maxWidth: '30%', aspectRatio: 1 , backgroundColor: colors.grey, display: 'flex', flexDirection: 'column',  alignItems: 'center' }}>
                         { i === 1 &&
                             <div style={{height:"30%", width:"30%", paddingTop: 20,  }}>
                                 <img src={require('./images/grillkurs_icon.png')} style={{height: "70%", aspectRatio: 1, }} alt='grill'/>
@@ -500,7 +561,7 @@ export default function HomePage(props) {
 
                         </div>
                         { i === 1 &&
-                          <div style={{position: 'relative', height: "10%", aspectRatio: 1, left: 150, marginTop: 70 }}>
+                          <div style={{position: 'relative', height: "10%", aspectRatio: 1, left: 150, marginTop: 20 }}>
                             <img src={require('./images/znak.png')} style={{height:'100%', width:"100%"}} alt='znak' />
                           </div>
                         }
@@ -538,7 +599,7 @@ export default function HomePage(props) {
                 <div style={{fontSize: Height.current/50, color: colors.white, fontWeight: 250, marginTop: 2, marginRight: 10,  maxWidth: '90%', letterSpacing: 1, marginBottom: 2,  }}>
                   Besuchen Sie uns auf:   
                 </div>
-                <img src={require('./images/Group 628 1.png')} style={{height:"30%", aspectRatio: 4, }} alt='logo'/>
+                <img src={require('./images/Group 628 1.png')} style={{height:"30%", aspectRatio: 4.5, }} alt='logo'/>
 
           </div>
       </div>
@@ -547,7 +608,7 @@ export default function HomePage(props) {
                   © 2020 by Metzgerei Heiko Brath  GmbH, Deutschland                
                 </div>
                 <div style={{fontSize: Height.current/65, color: colors.almostWhite, fontWeight: 250, marginTop: 2, marginRight: 150,  maxWidth: '90%', letterSpacing: 1, marginBottom: 2,  }}>
-                Code and design by StudioPresent
+                Code and design by: <button onClick={()=>{window.location.href = 'https://www.studiopresent.rs/';}} style={{borderWidth: 0, backgroundColor: 'transparent', color: colors.white, fontSize:  Height.current/65, fontWeight: 100, textDecorationLine: 'underline'}}>StudioPresent</button>
                 </div>
       </div>
 
