@@ -1,0 +1,11 @@
+
+@media (maxWidth: 900){
+   .section {
+    
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    
+   }
+}

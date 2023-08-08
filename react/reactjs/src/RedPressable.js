@@ -4,7 +4,7 @@ import colors from './constants'
 
 
 
-const RedPressable = ({color, props}) => {
+const RedPressable = ({setModal, color, props}) => {
 
   const Width = useRef(window.innerWidth);
   const Height = useRef(window.innerHeight);
@@ -19,7 +19,7 @@ const RedPressable = ({color, props}) => {
 
   return (
 
-    <button style={{height: Height.current/18, width: "40%", backgroundColor: color, borderWidth: 0,
+    <button onClick={()=>{setModal(true)}} style={{height: Height.current/18, width: "40%", backgroundColor: color, borderWidth: 0,
                     borderRadius: 50, marginTop: 50, color: getColor(color), fontSize: Height.current/65, letterSpacing: 1, fontWeight: 550,
                     marginLeft: 0, }}>
         {props}
