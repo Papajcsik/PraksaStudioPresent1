@@ -42,7 +42,7 @@ const Width = useRef(window.innerWidth);
                     Metzgermeister
                   </div>
                   
-                  <div style={{color: colors.white, fontWeight: 300, fontSize: Height.current/50, maxWidth: '80%', display: 'flex', textAlign: 'left', justifyContent: 'flex-start', marginTop: 30, flexWrap: 'wrap', letterSpacing: 1  }}>
+                  <div style={{color: colors.white, maxHeight: "80%", fontWeight: 300, fontSize: Height.current/50, marginTop: "10%", maxWidth: '80%', display: 'flex', textAlign: 'left', justifyContent: 'flex-start', alignItems: 'center', flexWrap: 'wrap', letterSpacing: 1  }}>
                     Deutsches Ipsum Dolor deserunt dissentias Grimms Märchen et. Tollit argumentum ius an. Pfannkuchen lobortis elaboraret per ne, nam Aperol Spritz probatus pertinax.
                   </div>
                 </div>

@@ -1,0 +1,35 @@
+
+
+        .custom-slider .slick-list {
+            height: 100% !important;
+            
+        }
+    
+        .custom-slider .slick-track {
+            height: 100% !important;
+            
+        }
+    
+        .custom-slider .slick-slider {
+            height: 100% !important;
+            
+        }
+    
+        .custom-slider .slick-list .slick-slide>div {
+            height: 100% !important;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            margin: 10px;
+    
+        }
+    
+        .custom-slider .slick-list .slick-slide>div>div {
+            height: 100% !important;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+    
+        }

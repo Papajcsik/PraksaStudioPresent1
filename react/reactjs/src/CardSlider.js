@@ -5,6 +5,7 @@ import colors from './constants';
 import Slider from 'react-slick';
 import "slick-carousel/slick/slick.css"; 
 import "slick-carousel/slick/slick-theme.css";
+import './Slider.css';
 
 
 const CardSlider = ({array}) => {
@@ -20,6 +21,7 @@ const CardSlider = ({array}) => {
       slidesToScroll: 2,
       initialSlide: 0,
       adaptiveHeight: false,
+      autoplay: true,
       
       //height: '100%',
       
@@ -57,13 +59,13 @@ const CardSlider = ({array}) => {
 
   return (
     <div style={{height: "40%", width: "70%",  marginTop: 100,}}>
-          <Slider {...settings} style={{height:'100%', display: 'flex', alignItems: 'center', justifyContent: 'space-evenly' }}>
+          <Slider {...settings} className="custom-slider"  style={{height:'100%', display: 'flex', alignItems: 'center', justifyContent: 'space-evenly' }}>
           {
             array.map((e, i)=>(
               <div key={e.name} style={{height: "100%",  width: '24%', }}>
 
-              <div style={{ height: "95%", width: "95%", backgroundImage: `url(${e.pic})`, backgroundSize: 'cover', backgroundRepeat: 'no-repeat', display: 'flex', alignItems: 'center'}}>
-                  <div style={{position: 'relative', zIndex: 2, fontSize: Height.current/50, backgroundColor: '#00000080',  color: colors.white, height:"100%", width: "100%", display: 'flex', alignItems: 'center', justifyContent: 'center'  }}>
+              <div style={{ height: "100%", width: "100%", backgroundImage: `url(${e.pic})`, backgroundSize: 'cover', backgroundRepeat: 'no-repeat', display: 'flex', alignItems: 'center'}}>
+                  <div style={{position: 'relative', zIndex: 2, fontSize: Height.current/50, backgroundColor: '#00000090',  color: colors.white, height:"25%", width: "100%", display: 'flex', alignItems: 'center', justifyContent: 'center'  }}>
                       {e.name}
                   </div>
                  </div>

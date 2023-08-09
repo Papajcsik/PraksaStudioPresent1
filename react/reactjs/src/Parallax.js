@@ -13,8 +13,9 @@ const MyParallax = () => {
 
 
   return (
-    <Parallax pages={1.5} style={{ position: 'relative', height: "100%", width: "100%", top: '0', left: '0',  }}>
-        <ParallaxLayer offset={0.5} speed={0.5} factor={2} style={{backgroundImage: `url(${plateImage})` , backgroundSize: 'contain', backgroundRepeat: 'no-repeat',}}>
+    <Parallax pages={1.2} style={{ position: 'relative', height: "100%", width: "100%", top: '0', left: '0', overflow: 'hidden' }}>
+        <ParallaxLayer offset={0} speed={0.5} factor={1.2} style={{backgroundImage: `url(${plateImage})` , backgroundAttachment: 'fixed', backgroundPosition: 'center', 
+                                                                  perspective: 2 , overflowX: 'hidden', overflowY: 'auto', backgroundSize: 'contain', backgroundRepeat: 'no-repeat',}}>
                 {/* <div style={{ width: "100%", backgroundColor: colors.almostBlack,
                     display: 'flex', height: '100%' , flexDirection: 'column', justifyContent: 'center', alignItems: 'center', ...{ 
                     backgroundImage: `url(${plateImage})` , backgroundSize: 'auto', backgroundRepeat: 'no-repeat', }}}>
@@ -23,7 +24,7 @@ const MyParallax = () => {
                 </div> */}
         </ParallaxLayer>
 
-        <ParallaxLayer offset={0.5} speed={1.5}>
+        <ParallaxLayer offset={0.3} speed={1.5}>
                 <div style={{height:"100%", width: "100%", display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center',}}>
                             <div style={{fontSize: Height.current/24, color: colors.white, fontWeight: 750, }}>
                                 Fleischversand
