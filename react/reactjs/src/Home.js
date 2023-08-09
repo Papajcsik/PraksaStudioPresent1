@@ -12,6 +12,8 @@ import CustomModal from './CustomModal';
 import './Media.css';
 import CommentSlider from './CommentSlider';
 
+import AOS from "aos";
+import "aos/dist/aos.css";
 
 
 
@@ -207,11 +209,16 @@ export default function HomePage(props) {
 
 
      useEffect(()=>{
-        setTimeout(() => {
+
+      AOS.init();
+      AOS.refresh();
+
+      setTimeout(() => {
           if(modalEnabled){
             setModalState(true)
           }
         }, 5000);
+
     },[]);
     
   return (
@@ -350,7 +357,7 @@ export default function HomePage(props) {
 
       <div className='section' style={styles.section}>
         
-        <animated.div style={{...styles.fiftyPercentLeft, ...springProps}}>
+        <div data-aos="fade-up" style={{...styles.fiftyPercentLeft}}>
           <div style={styles.thirdyPercent}>
               <div style={{fontSize: Height.current/22, color: colors.white, fontWeight: 750, marginTop: 15}}>
                   Dry aged
@@ -371,9 +378,9 @@ export default function HomePage(props) {
 
 
           </div>
-        </animated.div>
+        </div>
         
-        <animated.div style={{...styles.fiftyPercentRight, ...springProps }}>
+        <div  data-aos="fade-up" style={{...styles.fiftyPercentRight, }}>
             <div style={{...styles.thirdyPercent, ...{display: 'flex',  flexDirection: 'column', justifyContent: 'space-between', marginTop: 10,}}}>
                 <div style={{ height: '65%', width: "100%",}}>
                  
@@ -394,11 +401,11 @@ export default function HomePage(props) {
 
 
             </div>
-        </animated.div>
+        </div>
       </div>
       
       <div  style={{...styles.section, ...{ backgroundColor: ( darkMode ? colors.almostBlack : colors.redButtons )}}} >
-        <animated.div style={{...styles.fiftyPercentLeft, ...springProps}}>
+        <div data-aos="fade-right" style={{...styles.fiftyPercentLeft, }}>
           <div style={styles.thirdyPercent}>
             <div style={{fontSize: Height.current/22, color: colors.white, fontWeight: 750, marginTop: 10, marginBottom: 50}}>
                  Buchen Sie den <br/>
@@ -419,33 +426,33 @@ export default function HomePage(props) {
 
 
           </div>
-        </animated.div>
+        </div>
         
-        <animated.div style={{...styles.fiftyPercentRight, ...springProps}}>
+        <div data-aos="fade-left" style={{...styles.fiftyPercentRight, }}>
             
             <img src={require('./images/victoria-shes-UC0HZdUitWY-unsplash copy@2x 1.jpg')} style={{width: "100%",  height: '100%'}} alt='raznjic'/>
-        </animated.div>
+        </div>
 
         
       </div>
 
       <div style={{...styles.section, ...{display: 'flex', alignItems: 'center', flexDirection: 'column' }}}>
         
-        <div style={{fontSize: Height.current/22, color: colors.white, fontWeight: 750, marginTop: 70, marginBottom: 0}}>
+        <div data-aos="fade-up" style={{fontSize: Height.current/22, color: colors.white, fontWeight: 750, marginTop: 70, marginBottom: 0}}>
                   Das Handwerk
         </div>
 
-        <div style={{fontSize: Height.current/30, color: colors.white, fontWeight: 550, marginTop: 10, marginBottom: 50}}>
+        <div data-aos="fade-up" style={{fontSize: Height.current/30, color: colors.white, fontWeight: 550, marginTop: 10, marginBottom: 50}}>
                   alles über unsere Hausgemachte Produkte
         </div>
 
-        <div style={{fontSize: Height.current/55, color: colors.white, fontWeight: 350, marginTop: 20, maxWidth: '40%', letterSpacing: 1, textAlign: 'center', }}>
+        <div data-aos="fade-up" style={{fontSize: Height.current/55, color: colors.white, fontWeight: 350, marginTop: 20, maxWidth: '40%', letterSpacing: 1, textAlign: 'center', }}>
                   Halt amet, consectetur Handtasche elit, sed do eiusmod tempor Stuttgart ut labore et dolore magna 99 Luftballons Ut enim ad minim veniam, Turnbeutel nostrud exercitation ullamco laboris nisi Sprechen Sie deutsch aliquip ex ea commodo consequat.
                  <br/><br/> Wiener Schnitzel aute irure dolor in Guten Tag mollit anim Stuttgart. <br/><br/>
                   id latine indoctum complectitur HugoClub Mate mea meliore denique nominavi id. Ohrwurm expetenda nam an, his ei Reise euismod assentior
         </div>
 
-        <div style={{height:"10%", width: "30%", marginTop: 50,}}>
+        <div data-aos="fade-up" style={{height:"10%", width: "30%", marginTop: 50,}}>
           <RedPressable setModal={setModalState} color={colors.redButtons} props={'Das Handwerk'}/>
         </div>
 
@@ -455,17 +462,17 @@ export default function HomePage(props) {
       </div>
       <div style={{...styles.section, display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
 
-        <HorizontalSpacer/>
+        <HorizontalSpacer />
 
         <CardSlider array={foodArray}/>
 
       </div>
 
       <div style={{...styles.section, ...{ backgroundColor: ( darkMode ? colors.almostBlack : colors.redNavBG )}}} className='section'>
-        <div style={styles.fiftyPercentLeft}>
+        <div data-aos="fade-right" style={styles.fiftyPercentLeft}>
           <img src={require('./images/4541cc99083f618a22b772228f8a9698@2x 1.jpg')} style={{height:"100%", width: "100%"}} alt='fuszer'/>
         </div>
-        <div style={{...styles.fiftyPercentRight, ...{display: 'flex', alignItems: 'center'}}}>
+        <div data-aos="fade-left" style={{...styles.fiftyPercentRight, ...{display: 'flex', alignItems: 'center'}}}>
             <div style={{...styles.thirdyPercent, ...{ marginLeft: 100, height: "60%", display: 'flex', flexDirection: 'column', justifyContent: 'space-evenly' }}}>
 
 

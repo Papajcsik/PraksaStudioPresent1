@@ -27,6 +27,7 @@ const Width = useRef(window.innerWidth);
       centerPadding: 0,
 
 
+
     };
     return (
       <div style={{height: Height.current/1.2, width:"100%", position: 'relative', paddingBottom: 0  }}>

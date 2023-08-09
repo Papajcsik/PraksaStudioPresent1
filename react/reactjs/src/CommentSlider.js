@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import {useRef} from 'react';
 import colors from './constants';
 
@@ -6,6 +6,9 @@ import Slider from 'react-slick';
 import "slick-carousel/slick/slick.css"; 
 import "slick-carousel/slick/slick-theme.css";
 import './commentSlider.css';
+
+import AOS from "aos";
+import "aos/dist/aos.css";
 
 
 const CommentSlider = ({array}) => {
@@ -65,10 +68,17 @@ const CommentSlider = ({array}) => {
   }
   return "60%";
  };
+ 
+     useEffect(()=>{
+
+      AOS.init();
+      AOS.refresh();
+
+    },[]);
   
 
   return (
-    <div style={{height: "90%", width: "80%",  marginTop: 0,}}>
+    <div data-aos="fade-up" style={{height: "90%", width: "80%",  marginTop: 0,}}>
           <Slider {...settings} className="custom-slider"  style={{height:'100%', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
                             {
                     array.map((e, i)=>(
