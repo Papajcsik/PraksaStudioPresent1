@@ -14,10 +14,12 @@ import CommentSlider from './CommentSlider';
 
 import AOS from "aos";
 import "aos/dist/aos.css";
+import NavBar from './NavBar';
 
 
 
 export default function HomePage(props) {
+
 
   const Width = useRef(window.innerWidth);
   const Height = useRef(window.innerHeight);
@@ -36,16 +38,18 @@ export default function HomePage(props) {
   const [modalState, setModalState] = useState(false);
   const [modalEnabled, setModalEnabled] = useState(true);
 
+ 
+
 
   const foodArray = [
-  {name: 'Würstchen', pic: require('./images/rachel-clark-MhI8HVjqJf8-unsplash.jpg')},
-  {name: 'Hahnchen', pic: require('./images/claudio-schwarz-4qJlXK4mYzU-unsplash.jpg')},
+  {name: 'Würstchen', pic: require('./images/webp/rachel-clark-MhI8HVjqJf8-unsplash.webp')},
+  {name: 'Hahnchen', pic: require('./images/webp/claudio-schwarz-4qJlXK4mYzU-unsplash.webp')},
   {name: 'Schwein', pic: require('./images/jose-ignacio-pompe-s-Z-h0fEiBM-unsplash.jpg')},
-  {name: 'Rind', pic: require('./images/luis-santoyo-IePWXTF3-0Y-unsplash.jpg')},
-  {name: 'Würstchen', pic: require('./images/rachel-clark-MhI8HVjqJf8-unsplash.jpg')},
-  {name: 'Hahnchen', pic: require('./images/claudio-schwarz-4qJlXK4mYzU-unsplash.jpg')},
+  {name: 'Rind', pic: require('./images/webp/luis-santoyo-IePWXTF3-0Y-unsplash.webp')},
+  {name: 'Würstchen', pic: require('./images/webp/rachel-clark-MhI8HVjqJf8-unsplash.webp')},
+  {name: 'Hahnchen', pic: require('./images/webp/claudio-schwarz-4qJlXK4mYzU-unsplash.webp')},
   {name: 'Schwein', pic: require('./images/jose-ignacio-pompe-s-Z-h0fEiBM-unsplash.jpg')},
-  {name: 'Rind', pic: require('./images/luis-santoyo-IePWXTF3-0Y-unsplash.jpg')},
+  {name: 'Rind', pic: require('./images/webp/luis-santoyo-IePWXTF3-0Y-unsplash.webp')},
   ]
   const awardArray = [
   {name: 'Tollit argumentum genau Saepe lobortis', pic: require('./images/nagrada1.png')},
@@ -107,7 +111,7 @@ export default function HomePage(props) {
     backgroundColor: colors.almostBlack,
     display: 'flex',
     height: Height.current/1.4, 
-    flexDirection: 'column', 
+    //flexDirection: 'column', 
     justifyContent: 'center',
     alignItems: 'center',  
 
@@ -136,6 +140,7 @@ export default function HomePage(props) {
   },
   listItem: {
     fontSize: Height.current/45, 
+    textAlign: 'left',
     fontWeight: 300, 
     color: colors.white, 
     marginTop: 30,
@@ -223,77 +228,12 @@ export default function HomePage(props) {
     
   return (
     <div style={{ height: Height.current/10, width: "100%", backgroundColor: 'transparent', display: 'flex', flexWrap: 'wrap', }}>
-      <div style={{ height: '75%', width: "100%",  justifyContent: 'center', alignItems: 'center', backgroundColor: ( darkMode ? colors.almostBlack : colors.redNavBG ), borderWidth: 0}}>
-        <div style={{ height: "100%", width: '75%', display: 'flex', flexDirection: 'row', alignSelf: 'center', justifyContent: 'flex-start', paddingLeft: "25%", backgroundColor: ( darkMode ? colors.almostBlack : colors.redNavBG ), borderWidth: 0}}>
-           
-            <img src={require('./images/logo.png')} alt='logo' style={{position: 'absolute', height: Height.current/6, aspectRatio: 1, left: Width.current/12 , zIndex: 10, }}/>
-            
-           { Width.current >= 1000 &&
-              <div style={{height:'100%', width:"90%", display: 'flex', flexDirection: 'row', justifyContent: 'space-evenly', alignSelf: 'flex-end', alignItems: 'center', flexWrap: 'nowrap'}}>
-              <button onClick={()=>{}}         
-                style={styles.navButton}>
-                      die Metzgerei
-              </button>
-              <button onClick={()=>{}}         
-                style={styles.navButton}>
-                      Dry Aged
-              </button>
-              <button onClick={()=>{}}         
-                style={styles.navButton}>
-                      Fleischversand
-              </button>
-              <button onClick={()=>{}}         
-                style={styles.navButton}>
-                      Events/Kurse
-              </button>
-              <button onClick={()=>{}}         
-                style={styles.navButton}>
-                      Partyservice
-              </button>
-              <button onClick={()=>{}}         
-                style={styles.navButton}>
-                      Tagesessen 
-              </button>
-              <button onClick={()=>{}}         
-                style={styles.navButton}>
-                      Impressum 
-              </button>
-              <button onClick={()=>{}}         
-                style={styles.navButton}>
-                      Kontakt 
-              </button>
-            
-              <button onClick={()=>{}}         
-                style={{...styles.navButton, ...{display: 'flex', flexDirection: 'row', justifyContent: 'space-evenly', alignItems: 'center'}}}>
-                    <img src={require('./images/Frame.png')}  alt='pdf' style={{height: "30%", aspectRatio: 1, paddingRight: 10,  }}/>
-
-                      download 
-              </button>
-            </div>
-           }
-           { Width.current < 1000 &&
-              <div style={{height:'100%', width:"90%", display: 'flex', flexDirection: 'row', justifyContent: 'flex-end', alignItems: 'center', flexWrap: 'nowrap'}}>
-                <button onClick={()=>{}}         
-                style={{...styles.navButton, ...{display: 'flex', flexDirection: 'row', justifyContent: 'space-evenly', alignItems: 'center', marginRight:"15%"}}}>
-                    <img src={require('./images/Frame.png')}  alt='pdf' style={{height: "30%", aspectRatio: 1, paddingRight: 10,  }}/>
-
-                      download 
-              </button>
-                <button onClick={()=>{setHamburgerMenu(!hamburgerMenu)}} onMouseEnter={()=>{setIsHover(true)}} onMouseLeave={()=>{setIsHover(false)}}     
-                  style={{...styles.navButton, ...{flexDirection: 'column', justifyContent: 'space-evenly', backgroundColor: (isHover ? colors.white : 'transparent' ) }}}>
-                  <div style={{...styles.hamburger, ...{backgroundColor: (isHover ?  colors.redNavBG : colors.white ),  }}}></div>
-                  <div style={{...styles.hamburger, ...{backgroundColor: (isHover ?  colors.redNavBG : colors.white ),  }}}></div>
-                  <div style={{...styles.hamburger, ...{backgroundColor: (isHover ?  colors.redNavBG : colors.white ),  }}}></div>
-                </button>
-              </div>
-           }
-           
-        </div>
-    
-      </div>
+          
+          <NavBar Width={Width.current} hamburgerMenu={hamburgerMenu} setHamburgerMenu={setHamburgerMenu} setIsHover={setIsHover} darkMode={darkMode} isHover={isHover}/>
+      
       <div style={{ height:'35%', width: "100%",  backgroundColor: colors.grey, display: 'flex', alignItems: 'center', justifyContent: 'flex-end', flexWrap: 'nowrap' }}>
-        <img src={require('./images/clock.png')}  alt='clock' style={{height: "60%", aspectRatio: 1.2, zIndex: 10, }}/>
-          <div style={{ height:'100%', width: "40%", fontSize: Height.current/65, display: 'flex', alignItems: 'center', marginLeft: 10,  backgroundColor: colors.grey, color: colors.white }}>
+        <img src={require('./images/webp/clock.webp')}  alt='clock' style={{height: "60%", aspectRatio: 1.2, zIndex: 10, }}/>
+          <div className='openTime' style={{ height:'100%', width: "40%", fontSize: Height.current/65, display: 'flex',  alignItems: 'center', flexWrap: 'nowrap', marginLeft: 1,  backgroundColor: colors.grey, color: colors.white }}>
 
             Opentime:   Di. - Fr.: 07:00-13:00  und 15:00-18:30.    Sa.:	 07:30	-	12:30
             <button 
@@ -354,24 +294,40 @@ export default function HomePage(props) {
       <div>
         
       </div>
+      { Width.current <= 1400 &&
+        <div style={{...styles.smallSection, ...{height: Height.current/2.5, }}}>
+              <div style={{height: '100%', width:"60%", position: 'relative', backgroundColor: 'transparent' , display: 'flex', justifyContent: 'center', alignItems: 'center'}}>
+                <div style={{height:'100%', width: '70%', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center' }}>
+                  <div style={{color: colors.white, fontWeight: 750, fontSize: Height.current/25, display: 'flex', textAlign: 'center', justifyContent: 'center', marginTop: 20, letterSpacing: 2  }}>
+                    Heiko Brath <br/>
+                    Metzgermeister
+                  </div>
+                  
+                  <div style={{color: colors.white, maxHeight: "80%", fontWeight: 300, fontSize: Height.current/50, marginTop: "10%", maxWidth: '80%', display: 'flex', textAlign: 'center', justifyContent: 'center', alignItems: 'center', flexWrap: 'wrap', letterSpacing: 1  }}>
+                    Deutsches Ipsum Dolor deserunt dissentias Grimms Märchen et. Tollit argumentum ius an. Pfannkuchen lobortis elaboraret per ne, nam Aperol Spritz probatus pertinax.
+                  </div>
+                </div>
+              </div>
+      </div>
+      }
 
       <div className='section' style={styles.section}>
         
-        <div data-aos="fade-up" style={{...styles.fiftyPercentLeft}}>
-          <div style={styles.thirdyPercent}>
-              <div style={{fontSize: Height.current/22, color: colors.white, fontWeight: 750, marginTop: 15}}>
+        <div className='fiftyPercent' data-aos="fade-up" style={{...styles.fiftyPercentLeft}}>
+          <div className='thirdyPercent' style={{...styles.thirdyPercent, ...{height: '95%', display: 'flex', flexDirection: 'column', justifyContent: 'center' }}}>
+              <div style={{fontSize: Height.current/22, color: colors.white, fontWeight: 750, marginTop: 20}}>
                   Dry aged
               </div>
-              <div style={{fontSize: Height.current/35, color: colors.white, fontWeight: 650, marginBottom: 70, }}>
+              <div style={{fontSize: Height.current/35, color: colors.white, fontWeight: 650, marginBottom: 20, }}>
                   Alte Wutz, Dry Aged
               </div>
 
-              <div style={{color: colors.white, fontWeight: 300, fontSize: Height.current/50, maxWidth: '80%', display: 'flex', textAlign: 'left', justifyContent: 'flex-start', marginTop: 20, flexWrap: 'wrap', letterSpacing: 1  }}>
+              <div style={{color: colors.white, fontWeight: 300, fontSize: Height.current/50, maxWidth: '80%', display: 'flex', textAlign: 'left', justifyContent: 'flex-start', marginTop: 15, flexWrap: 'wrap', letterSpacing: 1  }}>
                 Halt amet, consectetur Handtasche elit, sed do eiusmod tempor Stuttgart ut labore et dolore magna 99 Luftballons Ut enim ad minim veniam, Turnbeutel nostrud exercitation ullamco laboris nisi Sprechen Sie deutsch aliquip ex ea commodo consequat. Wiener Schnitzel aute irure dolor in reprehenderit Guten Tag mollit anim Stuttgart.<br/><br/>
                 id latine indoctum complectitur HugoClub Mate mea meliore denique nominavi id. Ohrwurm expetenda nam an, his ei Reise euismod assentior.
               </div>
 
-              <div style={{display: 'flex', height: "10%", width: "80%", flexDirection: 'row', justifyContent: 'space-around'}}>
+              <div style={{display: 'flex', height: "10%", width: "80%", flexDirection: 'row', justifyContent: 'space-around', marginBottom: 15 }}>
                 <RedPressable setModal={setModalState} color={colors.redButtons} props={'Dry Aged'}/>
                 <RedPressable setModal={setModalState} color={colors.redButtons} props={'Alte Wurtz'}/>
               </div>
@@ -380,21 +336,21 @@ export default function HomePage(props) {
           </div>
         </div>
         
-        <div  data-aos="fade-up" style={{...styles.fiftyPercentRight, }}>
-            <div style={{...styles.thirdyPercent, ...{display: 'flex',  flexDirection: 'column', justifyContent: 'space-between', marginTop: 10,}}}>
-                <div style={{ height: '65%', width: "100%",}}>
+        <div className='fiftyPercent' data-aos="fade-up" style={{...styles.fiftyPercentRight, }}>
+            <div className='thirdyPercent' style={{...styles.thirdyPercent, ...{display: 'flex',  flexDirection: 'column', justifyContent: 'space-between', marginTop: 5,}}}>
+                <div style={{ height: '70%', width: "100%", marginBottom: 10}}>
                  
-                  <img src={require('./images/287e4a29fb95622355c7023ec0f765ff@2x 1.png')}  alt='meat1' style={{height: "100%", width: "100%", }}/>
+                  <img src={require('./images/webp/287e4a29fb95622355c7023ec0f765ff@2x 1.webp')}  alt='meat1' style={{height: "100%", width: "100%", aspectRatio: 1 }}/>
 
                 </div>
 
                 <div style={{display: 'flex',  flexDirection: 'row', justifyContent: 'space-between', height: '30%', width:'100%',  }}>
                   
-                  <img src={require('./images/93567ed87a1475783cc3a90355825a87@2x 1.png')}  alt='meat2' style={{height: "100%", width: "30%", }}/>
+                  <img src={require('./images/webp/93567ed87a1475783cc3a90355825a87@2x 1.webp')}  alt='meat2' style={{height: "100%", aspectRatio: 1, minWidth: '30%', margin: 5 }}/>
 
-                  <img src={require('./images/d368bea5bcb8ed88cfcf994b7a518068@2x 1.png')}  alt='meat3' style={{height: "100%", width: "30%", }}/>
+                  <img src={require('./images/webp/d368bea5bcb8ed88cfcf994b7a518068@2x 1.webp')}  alt='meat3' style={{height: "100%", aspectRatio: 1, minWidth: '30%', margin: 5 }}/>
 
-                  <img src={require('./images/1c78d243bd195e6ff002f8fdbc24e5d0@2x 1.png')}  alt='meat4' style={{height: "100%", width: "30%", }}/>
+                  <img src={require('./images/webp/1c78d243bd195e6ff002f8fdbc24e5d0@2x 1.webp')}  alt='meat4' style={{height: "100%", aspectRatio: 1, minWidth: '30%', margin: 5 }}/>
 
                 </div>
 
@@ -404,14 +360,14 @@ export default function HomePage(props) {
         </div>
       </div>
       
-      <div  style={{...styles.section, ...{ backgroundColor: ( darkMode ? colors.almostBlack : colors.redButtons )}}} >
-        <div data-aos="fade-right" style={{...styles.fiftyPercentLeft, }}>
-          <div style={styles.thirdyPercent}>
-            <div style={{fontSize: Height.current/22, color: colors.white, fontWeight: 750, marginTop: 10, marginBottom: 50}}>
+      <div  className='section' style={{...styles.section, ...{ backgroundColor: ( darkMode ? colors.almostBlack : colors.redButtons )}}} >
+        <div className='fiftyPercent' data-aos="fade-right" style={{...styles.fiftyPercentLeft, }}>
+          <div className='thirdyPercent' style={styles.thirdyPercent}>
+            <div style={{fontSize: Height.current/22, color: colors.white, fontWeight: 750, marginTop: 10, marginBottom: 20}}>
                  Buchen Sie den <br/>
                  Grillkurs jetzt
             </div>
-            <ul style={{height: "30%", width: '60%', marginBottom: 50,}}>
+            <ul style={{height: "45%", width: '60%', marginBottom: 50, }}>
               <li style={styles.listItem}>professioneller Lehrer</li>
               <li style={styles.listItem}>ausgezeichneter Metzger</li>
               <li style={styles.listItem}>1 Tag</li>
@@ -419,7 +375,7 @@ export default function HomePage(props) {
 
             </ul>
 
-              <div style={{display: 'flex', height: "10%", width: "70%", flexDirection: 'row', justifyContent: 'center'}}>
+              <div style={{display: 'flex', height: "10%", width: "70%", flexDirection: 'row', justifyContent: 'center', alignItems: 'center'}}>
 
                 <RedPressable setModal={setModalState} color={colors.white} props={'Grillkurs'}/>
               </div>
@@ -428,7 +384,7 @@ export default function HomePage(props) {
           </div>
         </div>
         
-        <div data-aos="fade-left" style={{...styles.fiftyPercentRight, }}>
+        <div className='fiftyPercent' data-aos="fade-left" style={{...styles.fiftyPercentRight, }}>
             
             <img src={require('./images/victoria-shes-UC0HZdUitWY-unsplash copy@2x 1.jpg')} style={{width: "100%",  height: '100%'}} alt='raznjic'/>
         </div>
@@ -436,7 +392,7 @@ export default function HomePage(props) {
         
       </div>
 
-      <div style={{...styles.section, ...{display: 'flex', alignItems: 'center', flexDirection: 'column' }}}>
+      <div className='section' style={{...styles.section, ...{display: 'flex', alignItems: 'center', flexDirection: 'column' }}}>
         
         <div data-aos="fade-up" style={{fontSize: Height.current/22, color: colors.white, fontWeight: 750, marginTop: 70, marginBottom: 0}}>
                   Das Handwerk
@@ -452,7 +408,7 @@ export default function HomePage(props) {
                   id latine indoctum complectitur HugoClub Mate mea meliore denique nominavi id. Ohrwurm expetenda nam an, his ei Reise euismod assentior
         </div>
 
-        <div data-aos="fade-up" style={{height:"10%", width: "30%", marginTop: 50,}}>
+        <div data-aos="fade-up" style={{height:"10%", width: "50%", marginTop: 50,}}>
           <RedPressable setModal={setModalState} color={colors.redButtons} props={'Das Handwerk'}/>
         </div>
 
@@ -461,18 +417,21 @@ export default function HomePage(props) {
        
       </div>
       <div style={{...styles.section, display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
+        
+        <div style={{ width: "100%", height: "30%", display: 'flex', justifyContent: 'center', alignItems: 'center'}}>
 
-        <HorizontalSpacer />
+          <HorizontalSpacer />
+        </div>
 
         <CardSlider array={foodArray}/>
 
       </div>
 
       <div style={{...styles.section, ...{ backgroundColor: ( darkMode ? colors.almostBlack : colors.redNavBG )}}} className='section'>
-        <div data-aos="fade-right" style={styles.fiftyPercentLeft}>
-          <img src={require('./images/4541cc99083f618a22b772228f8a9698@2x 1.jpg')} style={{height:"100%", width: "100%"}} alt='fuszer'/>
+        <div className='fiftyPercent' data-aos="fade-right" style={styles.fiftyPercentLeft}>
+          <img src={require('./images/4541cc99083f618a22b772228f8a9698@2x 1.jpg')} style={{height:"100%", width: "100%", resizeMode: 'contain' }} alt='fuszer'/>
         </div>
-        <div data-aos="fade-left" style={{...styles.fiftyPercentRight, ...{display: 'flex', alignItems: 'center'}}}>
+        <div className='fiftyPercent' data-aos="fade-left" style={{...styles.fiftyPercentRight, ...{display: 'flex', alignItems: 'center'}}}>
             <div style={{...styles.thirdyPercent, ...{ marginLeft: 100, height: "60%", display: 'flex', flexDirection: 'column', justifyContent: 'space-evenly' }}}>
 
 
@@ -505,7 +464,7 @@ export default function HomePage(props) {
                               <div style={{fontSize: Height.current/24, color: colors.white, fontWeight: 750, }}>
                                   Fleischversand
                               </div>
-                              <div style={{height: "10%", width:"30%", }}>
+                              <div style={{height: "10%", width:"50%", }}>
                                   <RedPressable color={colors.white} props={'Jetzt bestellen'}/>
                               </div>
                         </div>
@@ -515,55 +474,63 @@ export default function HomePage(props) {
       </div>
 
 
-      <div style={{ ...styles.smallSection, ...{ }}}>
-        <div style={{height: '80%', width: "100%", display: 'flex', flexDirection: 'row'}}>
-          <div style={{...styles.fiftyPercentLeft, ...{}}}>
+      <div className='section2' style={{ ...styles.smallSection, ...{ flexDirection: 'column', justifyContent: 'space-evenly', flexWrap: 'no-wrap'  }}}>
+              
+        <div className='rowToColumn' style={{height: '80%', width: "100%", display: 'flex', flexDirection: 'row'}}>
+
+        
+          <div className='fiftyPercent' style={{...styles.fiftyPercentLeft, ...{height:"80%"}}}>
            
-           <div style={{...styles.thirdyPercent, ...{display: 'flex', alignItems: 'center'}}}>
+           <div style={{...styles.thirdyPercent, ...{display: 'flex', alignItems: 'center', justifyContent: 'center'}}}>
             <img src={require('./images/genussnetz logo 1.png')} style={{height: "50%", aspectRatio: 2}} alt='genustnetz'/>
            </div>
 
           </div>
-          <div style={{...styles.fiftyPercentRight, ...{}}}>
-            <div style={styles.thirdyPercent}>
+          <div className='fiftyPercent' style={{...styles.fiftyPercentRight, ...{height:"80%"}}}>
+            <div style={{...styles.thirdyPercent, ...{}}}>
               
-              <div style={{fontSize: Height.current/22, color: colors.white, fontWeight: 750, marginTop: 70, marginBottom: 0}}>
+              <div style={{fontSize: Height.current/22, color: colors.white, fontWeight: 750, marginTop: 70, display: 'flex', alignItems: 'center', justifyContent: 'center'}}>
                   Metzgerei Brath ist Mitglied <br/>
                   im Genussnetzwerk
               </div>
-              <div style={{height: "30%", width: "80%", display: 'flex', flexDirection: 'row', justifyContent: 'flex-start'}}>
+              <div style={{height: "30%", width: "100%", display: 'flex', justifyContent: 'center', marginBottom: 10}}>
                 <RedPressable setModal={setModalState} color={colors.redButtons} props={'Gehen zu site'}/>
               </div>
 
             </div>
-          </div>
         </div>
         
+      </div>
+      
+      <div style={{ width: "100%", height: "20%", display: 'flex', justifyContent: 'center', alignItems: 'center'}}>
 
         <HorizontalSpacer/>
+
+      </div>
+
       </div>
 
 
-      <div style={{ ...styles.smallSection, ...{ }}}>
-        <div style={{height: '80%', width: "100%", display: 'flex', flexDirection: 'row'}}>
-          <div style={{...styles.fiftyPercentLeft, ...{width:"35%", display: 'flex', alignItems: 'center', }}}>
+      <div className='section2' style={{ ...styles.smallSection, ...{ flexDirection: 'column', justifyContent: 'space-evenly', }}}>
+        <div className='rowToColumn' style={{height: '80%', width: "100%", display: 'flex', flexDirection: 'row', justifyContent: 'space-evenly', alignItems: 'center' }}>
+          <div className='fiftyPercent' style={{...styles.fiftyPercentLeft, ...{ display: 'flex', alignItems: 'center', justifyContent: 'center', flex: 1 }}}>
             
-            <div style={{fontSize: Height.current/22, color: colors.white, fontWeight: 750, }}>
+            <div style={{fontSize: Height.current/22, color: colors.white, fontWeight: 750, marginBottom: 20 }}>
                   Auszeichnungen
               </div>
            
           </div>
-          <div style={{...styles.fiftyPercentRight, ...{width:'50%', display: 'flex', alignItems: 'center',}}}>
+          <div className='fiftyPercent' style={{...styles.fiftyPercentRight, ...{ display: 'flex', alignItems: 'center', flex: 2}}}>
             
-            <div style={{height: "80%", width: "90%", maxWidth:'80%', marginLeft: 20, display: 'flex', flexDirection: 'row', justifyContent: 'center', alignItems: 'center', flexWrap: 'wrap'}}>
+            <div className='wrapAwards' style={{height: "80%", width: "90%", marginLeft: 20, display: 'flex', flexDirection: 'row', justifyContent: 'space-evenly', alignItems: 'center', }}>
               {
                 awardArray.map((e, i)=>(
-                  <div key={e.name} style={{width: "20%", aspectRatio: 1, maxWidth:"23%", margin: 10, display: 'block', }}>
+                  <div className='awardContainer' key={i} style={{width: "20%", aspectRatio: 1, maxWidth:"40%", margin: 10, display: 'block', }}>
                   <div style={{height: "100%", width: "100%", backgroundImage: `url(${e.pic})`, backgroundSize: 'contain', backgroundRepeat: 'no-repeat', display: 'flex', }}>
                       
                     </div>
                       {/* <img src={e.pic} alt='i' style={{width:"100%", height: "100%", zIndex: 1}}/> */}
-                      <div style={{position: 'relative', zIndex: 2, fontSize: Height.current/50, marginTop: 15, color: colors.almostWhite, height:"40%", width: "100%", display: 'flex', alignItems: 'center', justifyContent: 'center'  }}>
+                      <div style={{position: 'relative', zIndex: 2, fontSize: Height.current/50, marginTop: 15, paddingTop: 10, color: colors.almostWhite, height:"40%", width: "100%", display: 'flex', alignItems: 'center', justifyContent: 'center'  }}>
                           {e.name}
                       </div>
                   </div>        
@@ -574,13 +541,15 @@ export default function HomePage(props) {
           </div>
         </div>
         
+        <div style={{ width: "100%", height: "30%", display: 'flex', justifyContent: 'center', alignItems: 'center'}}>
 
-        <HorizontalSpacer/>
+          <HorizontalSpacer/>
+        </div>
 
       </div>
 
 
-      <div style={{...styles.section , ...{height: Height.current, flexDirection: 'column', alignItems: 'center'}}}>
+      <div style={{...styles.section , ...{height: Height.current, flexDirection: 'column', justifyContent: 'center', alignItems: 'center'}}}>
              <div style={{position: 'relative', zIndex: 2, fontSize: Height.current/60, marginTop: 5, color: colors.almostWhite, height:"10%", width: "100%", display: 'flex', alignItems: 'center', justifyContent: 'center'  }}>
                 Empfehlungs
              </div>
@@ -599,15 +568,15 @@ export default function HomePage(props) {
                     <img src={require('./images/goRight.png')}  style={{height:"100%", width:"100%"}} alt='left'/>
                   </button> */}
               </div>
-            <div style={{height: "10%", width:"30%", marginBottom: 20}}>
+            <div style={{height: "10%", width:"50%", marginBottom: 20, marginTop: -40}}>
               <RedPressable setModal={setModalState} color={colors.redButtons} props={'Alle Berichte'}/>
               <br/>
             </div>              
 
       </div>
 
-      <div style={styles.footer}>
-          <div style={{...styles.footerColumn, ...{alignItems: 'left'}}}>
+      <div className='footer' style={styles.footer}>
+          <div className='alignText' style={{...styles.footerColumn, ...{alignItems: 'left'}}}>
               <div style={{fontSize: Height.current/60, color: colors.white, fontWeight: 250, marginTop: 2, maxWidth: '90%', letterSpacing: 1, marginBottom: 2,  }}>
               Klauprechtstraße  25 <br/>
               76137 Karlsruhe, Germany
@@ -620,22 +589,22 @@ export default function HomePage(props) {
               </div>
 
           </div>
-          <div style={styles.footerColumn}>
-                  <img src={require('./images/Group 655.png')} style={{height:"90%", aspectRatio: 1, }} alt='logo'/>
+          <div className='' style={styles.footerColumn}>
+                  <img src={require('./images/logo.png')} style={{height:"90%", aspectRatio: 1, }} alt='logo'/>
           </div>
-          <div  style={{...styles.footerColumn, ...{flexDirection: 'row', justifyContent: 'center'}}}>
-                <div style={{fontSize: Height.current/50, color: colors.white, fontWeight: 250, marginTop: 2, marginRight: 10,  maxWidth: '90%', letterSpacing: 1, marginBottom: 2,  }}>
+          <div className='rowToColumn textSize'  style={{...styles.footerColumn, ...{ flexDirection: 'row', justifyContent: 'center', alignItems: 'center'}}}>
+                <div style={{ width:"100%", fontSize: Height.current/50, color: colors.white, fontWeight: 250, marginTop: 2,  maxWidth: '90%', letterSpacing: 1, marginBottom: 10, display: 'flex', justifyContent: 'center'  }}>
                   Besuchen Sie uns auf:   
                 </div>
-                <img src={require('./images/Group 628 1.png')} style={{height:"30%", aspectRatio: 4.5, }} alt='logo'/>
+                <img className='textSize' src={require('./images/Group 628 1.png')} style={{height:"30%", aspectRatio: 4.5, marginBottom: 10 }} alt='logo'/>
 
           </div>
       </div>
-      <div style={{height:"30%", width: '100%', backgroundColor: colors.deepRed, display: 'flex', flexDirection: 'row', justifyContent: 'space-between'}}>
-                <div style={{fontSize: Height.current/65, color: colors.almostWhite, fontWeight: 250, marginTop: 2, marginLeft: 150,  maxWidth: '90%', letterSpacing: 1, marginBottom: 2,  }}>
+      <div className='bottomFooter footer' style={{height:"30%", width: '100%', backgroundColor: colors.deepRed, display: 'flex', flexDirection: 'row', flexWrap: 'nowrap', justifyContent: 'space-evenly'}}>
+                <div style={{fontSize: Height.current/65, color: colors.almostWhite, fontWeight: 250, marginTop: 2, marginLeft: 0,  maxWidth: '90%', letterSpacing: 1, marginBottom: 2,  }}>
                   © 2020 by Metzgerei Heiko Brath  GmbH, Deutschland                
                 </div>
-                <div style={{fontSize: Height.current/65, color: colors.almostWhite, fontWeight: 250, marginTop: 2, marginRight: 150,  maxWidth: '90%', letterSpacing: 1, marginBottom: 2,  }}>
+                <div style={{fontSize: Height.current/65, color: colors.almostWhite, fontWeight: 250, marginTop: 2, marginRight: 0,  maxWidth: '90%', letterSpacing: 1, marginBottom: 2,  }}>
                 Code and design by: <button onClick={()=>{window.location.href = 'https://www.studiopresent.rs/';}} style={{borderWidth: 0, backgroundColor: 'transparent', color: colors.white, fontSize:  Height.current/65, fontWeight: 100, textDecorationLine: 'underline'}}>StudioPresent</button>
                 </div>
       </div>

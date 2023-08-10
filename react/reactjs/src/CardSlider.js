@@ -58,7 +58,7 @@ const CardSlider = ({array}) => {
   
 
   return (
-    <div style={{height: "40%", width: "70%",  marginTop: 100,}}>
+    <div style={{height: "40%", width: "70%",  marginTop: 20,}}>
           <Slider {...settings} className="custom-slider"  style={{height:'100%', display: 'flex', alignItems: 'center', justifyContent: 'space-evenly' }}>
           {
             array.map((e, i)=>(

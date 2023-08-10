@@ -23,7 +23,7 @@ const Width = useRef(window.innerWidth);
       autoplay: true,
       autoplaySpeed: 5000,
       adaptiveHeight: true,
-      dots: true,
+      dots: false,
       centerPadding: 0,
 
 
@@ -36,7 +36,8 @@ const Width = useRef(window.innerWidth);
           
           <div style={styles.slidePage}>
 
-              <div style={{height: '55%', width:"35%", position: 'absolute', backgroundColor: '#00000050' ,  top: Height.current/4, display: 'flex', justifyContent: 'flex-end'}}>
+              { Width.current > 1400 &&
+                <div style={{height: '55%', width:"35%", position: 'absolute', backgroundColor: '#00000050' ,  top: Height.current/4, display: 'flex', justifyContent: 'flex-end'}}>
                 <div style={{height:'100%', width: '50%', }}>
                   <div style={{color: colors.white, fontWeight: 750, fontSize: Height.current/25, display: 'flex', textAlign: 'left', justifyContent: 'flex-start', marginTop: 20, letterSpacing: 2  }}>
                     Heiko Brath <br/>
@@ -47,23 +48,18 @@ const Width = useRef(window.innerWidth);
                     Deutsches Ipsum Dolor deserunt dissentias Grimms Märchen et. Tollit argumentum ius an. Pfannkuchen lobortis elaboraret per ne, nam Aperol Spritz probatus pertinax.
                   </div>
                 </div>
-              </div>
+              </div>}
           
-             <img src={require('./images/image 14.jpg')}  alt='boss' style={{height: "100%", width: "100%", zIndex: 5,  }}/>
+             <img src={require('./images/webp/image 14.webp')}  alt='boss' style={{height: "100%", width: "100%", zIndex: 5,  }}/>
 
           </div>
           <div style={styles.slidePage}>
-             <img src={require('./images/image 14.jpg')}  alt='boss' style={{height: "100%", width: "100%", zIndex: 5,  }}/>
+             <img src={require('./images/webp/image 14.webp')}  alt='boss' style={{height: "100%", width: "100%", zIndex: 5,  }}/>
           </div>
           <div style={styles.slidePage}>
-             <img src={require('./images/image 14.jpg')}  alt='boss' style={{height: "100%", width: "100%", zIndex: 5,  }}/>
+             <img src={require('./images/webp/image 14.webp')} alt='boss' style={{height: "100%", width: "100%", zIndex: 5,  }}/>
           </div>
-          <div style={styles.slidePage}>
-             <img src={require('./images/image 14.jpg')}  alt='boss' style={{height: "100%", width: "100%", zIndex: 5,  }}/>
-          </div>
-          <div style={styles.slidePage}>
-             <img src={require('./images/image 14.jpg')}  alt='boss' style={{height: "100%", width: "100%", zIndex: 5,  }}/>
-          </div>
+
 
         </Slider>
       </div>

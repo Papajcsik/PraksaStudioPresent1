@@ -7,9 +7,9 @@
 .custom-slider .slick-track {
     height: 100% !important;
     display: flex;
-        flex-direction: row;
-        justify-content: center;
-        align-items: center;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
 }
 
 .custom-slider .slick-slider {

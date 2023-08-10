@@ -33,6 +33,7 @@ const CommentSlider = ({array}) => {
         {
           breakpoint: 1024,
           settings: {
+            initialSlide: 1,
             slidesToShow: 3,
             slidesToScroll: 1,
             infinite: true,
@@ -45,12 +46,13 @@ const CommentSlider = ({array}) => {
           settings: {
             slidesToShow: 1,
             slidesToScroll: 1,
-            initialSlide: 0,
+            initialSlide: 1,
           }
         },
         {
           breakpoint: 480,
           settings: {
+            initialSlide: 1,
             slidesToShow: 1,
             slidesToScroll: 1
           }
@@ -82,7 +84,7 @@ const CommentSlider = ({array}) => {
           <Slider {...settings} className="custom-slider"  style={{height:'100%', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
                             {
                     array.map((e, i)=>(
-                      <div style={{height: getCardHeight(i), width:'25%', backgroundColor: colors.grey, backgroundAttachment: 'fixed', display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center' }}>
+                      <div key={i} style={{height: getCardHeight(i), width:'25%', backgroundColor: colors.grey, backgroundAttachment: 'fixed', display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center' }}>
                         { i === 1 &&
                             <div style={{height:"30%", width:"100%", paddingTop: 10, backgroundColor: colors.grey, display: 'flex', flexDirection: 'column', alignSelf: 'center', alignItems: 'center', alignContent: 'center', justifyContent: 'center' }}>
                                 <img src={require('./images/grillkurs_icon.png')} style={{height: "65%", aspectRatio: 1, }} alt='grill'/>

@@ -6,7 +6,7 @@ const CustomModal = ({ closeModal, enable }) => {
 
 
   return (
-    <div style={{ position: 'absolute', height: '100%', width:"100%", top: 80, zIndex: 100, backgroundColor: 'transparent', display: 'flex', justifyContent: 'center', alignItems: 'center'}}>
+    <div style={{ position: 'absolute', height: '100%', width:"100%", top: 80, zIndex: 100, backgroundColor: 'transparent', display: 'flex', justifyContent: 'center', alignItems: 'center', boxShadow: colors.black }}>
         <div style={{  height: '60%', aspectRatio: 2, backgroundColor: colors.black, borderRadius: 15, borderWidth: 1, borderColor: colors.grey}}>
 
            <div style={{height: "15%", width: "100%", display: 'flex', flexDirection: 'row', justifyContent: 'space-between', paddingLeft: 0, paddingRight: 0, color: colors.white, }}> 
