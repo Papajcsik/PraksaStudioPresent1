@@ -98,3 +98,10 @@
    }
 
 }
+@media (max-width: 850px) {
+
+   .thirdyPercent {
+      width: auto !important;
+   }
+
+}

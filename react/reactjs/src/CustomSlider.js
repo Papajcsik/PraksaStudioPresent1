@@ -30,9 +30,9 @@ const Width = useRef(window.innerWidth);
 
     };
     return (
-      <div style={{height: Height.current/1.2,  width:"100%", position: 'relative', paddingBottom: 0  }}>
+      <div className='customSliderContainer'  style={{  width:"100%", position: 'relative', paddingBottom: 0  }}>
         
-        <Slider { ...settings } style={{height:"100%", width:"100%", display: 'flex', justifyContent: 'center', alignItems:'center',  position: 'relative'}}>
+        <Slider { ...settings } className='customSlider' style={{width:"100%", display: 'flex', justifyContent: 'center', alignItems:'center',  position: 'relative'}}>
           
           <div style={styles.slidePage}>
 
@@ -44,7 +44,7 @@ const Width = useRef(window.innerWidth);
                     Metzgermeister
                   </div>
                   
-                  <div style={{color: colors.white, maxHeight: "80%", fontWeight: 300, fontSize: Height.current/50, marginTop: "10%", maxWidth: '80%', display: 'flex', textAlign: 'left', justifyContent: 'flex-start', alignItems: 'center', flexWrap: 'wrap', letterSpacing: 1  }}>
+                  <div style={{color: colors.white, maxHeight: "80%", fontWeight: 300, fontSize: Height.current/50, marginTop: "10%", marginBottom: 20, maxWidth: '80%', display: 'flex', textAlign: 'left', justifyContent: 'flex-start', alignItems: 'center', flexWrap: 'wrap', letterSpacing: 1  }}>
                     Deutsches Ipsum Dolor deserunt dissentias Grimms Märchen et. Tollit argumentum ius an. Pfannkuchen lobortis elaboraret per ne, nam Aperol Spritz probatus pertinax.
                   </div>
                 </div>

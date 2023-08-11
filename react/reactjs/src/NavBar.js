@@ -111,13 +111,13 @@ const NavBar = ({ Width, hamburgerMenu, setHamburgerMenu, setIsHover, darkMode, 
 
 
   return (
-          <div style={{ height: '75%', width: "100%",  justifyContent: 'center', alignItems: 'center', backgroundColor: ( darkMode ? colors.almostBlack : colors.redNavBG ), borderWidth: 0}}>
-        <div style={{ height: "100%", width: '75%', display: 'flex', flexDirection: 'row', alignSelf: 'center', justifyContent: 'flex-start', paddingLeft: "25%", backgroundColor: ( darkMode ? colors.almostBlack : colors.redNavBG ), borderWidth: 0}}>
+          <div style={{ width: "100%",  justifyContent: 'center', alignItems: 'center', backgroundColor: ( darkMode ? colors.almostBlack : colors.redNavBG ), borderWidth: 0}}>
+        <div style={{ width: '75%', display: 'flex', flexDirection: 'row', alignSelf: 'center', justifyContent: 'flex-start', paddingLeft: "25%", backgroundColor: ( darkMode ? colors.almostBlack : colors.redNavBG ), borderWidth: 0}}>
            
             <img src={require('./images/logo.png')} alt='logo' style={{position: 'absolute', height: Height.current/6, aspectRatio: 1, left: Width/12 , zIndex: 10, }}/>
             
            { Width >= 1000 &&
-              <div style={{height:'100%', width:"90%", display: 'flex', flexDirection: 'row', justifyContent: 'space-evenly', alignSelf: 'flex-end', alignItems: 'center', flexWrap: 'nowrap'}}>
+              <div style={{height:'100%', width:"90%", display: 'flex', flexDirection: 'row', justifyContent: 'space-evenly', alignSelf: 'flex-end', alignItems: 'center', flexWrap: 'nowrap', marginTop: 20, marginBottom: 20}}>
               <button onClick={()=>{}}         
                 style={styles.navButton}>
                       die Metzgerei
