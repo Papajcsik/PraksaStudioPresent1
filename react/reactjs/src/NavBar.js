@@ -98,12 +98,13 @@ const NavBar = ({ Width, hamburgerMenu, setHamburgerMenu, setIsHover, darkMode, 
 
   },
   hamburger: {
-    height: "8%",
-    aspectRatio: 4, 
+    
+    aspectRatio: 6, 
     maxWidth: "80%",
     minWidth: Width/20 , 
     backgroundColor: colors.white, 
     borderRadius: 10, 
+    marginBottom: 5,
 
   },
  
@@ -169,9 +170,9 @@ const NavBar = ({ Width, hamburgerMenu, setHamburgerMenu, setIsHover, darkMode, 
               </button>
                 <button onClick={()=>{setHamburgerMenu(!hamburgerMenu)}} onMouseEnter={()=>{setIsHover(true)}} onMouseLeave={()=>{setIsHover(false)}}     
                   style={{...styles.navButton, ...{flexDirection: 'column', justifyContent: 'space-evenly', backgroundColor: (isHover ? colors.white : 'transparent' ) }}}>
+                  <div style={{...styles.hamburger, ...{backgroundColor: (isHover ?  colors.redNavBG : colors.white ), marginTop: 10  }}}></div>
                   <div style={{...styles.hamburger, ...{backgroundColor: (isHover ?  colors.redNavBG : colors.white ),  }}}></div>
-                  <div style={{...styles.hamburger, ...{backgroundColor: (isHover ?  colors.redNavBG : colors.white ),  }}}></div>
-                  <div style={{...styles.hamburger, ...{backgroundColor: (isHover ?  colors.redNavBG : colors.white ),  }}}></div>
+                  <div style={{...styles.hamburger, ...{backgroundColor: (isHover ?  colors.redNavBG : colors.white ), marginBottom: 10 }}}></div>
                 </button>
               </div>
            }

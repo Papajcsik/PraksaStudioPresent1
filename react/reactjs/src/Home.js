@@ -103,6 +103,7 @@ export default function HomePage(props) {
     //flexDirection: 'row',
     flex: 1,
     flexWrap: 'no-wrap',
+    overflow: 'hidden',
 
   },
   smallSection: {
@@ -341,17 +342,17 @@ export default function HomePage(props) {
             <div className='thirdyPercent' style={{...styles.thirdyPercent, ...{display: 'flex',  flexDirection: 'column', justifyContent: 'space-between', marginTop: 15, marginBottom: 20,}}}>
                 <div style={{ marginBottom: 5}}>
                  
-                  <img src={require('./images/webp/287e4a29fb95622355c7023ec0f765ff@2x 1.webp')}  alt='meat1' style={{display: 'flex', flex: "100%", aspectRatio: 1 }}/>
+                  <img src={require('./images/webp/287e4a29fb95622355c7023ec0f765ff@2x 1.webp')}  alt='meat1' style={{display: 'flex',  aspectRatio: 1 }}/>
 
                 </div>
 
                 <div style={{display: 'flex',  flexDirection: 'row', justifyContent: 'space-between', }}>
                   
-                  <img src={require('./images/webp/93567ed87a1475783cc3a90355825a87@2x 1.webp')}  alt='meat2' style={{ display: 'flex', flex: '30%', aspectRatio: 1,  margin: 5 }}/>
+                  <img src={require('./images/webp/93567ed87a1475783cc3a90355825a87@2x 1.webp')}  alt='meat2' style={{ display: 'flex', aspectRatio: 1,  margin: 5 }}/>
 
-                  <img src={require('./images/webp/d368bea5bcb8ed88cfcf994b7a518068@2x 1.webp')}  alt='meat3' style={{ display: 'flex', flex: '30%', aspectRatio: 1,  margin: 5 }}/>
+                  <img src={require('./images/webp/d368bea5bcb8ed88cfcf994b7a518068@2x 1.webp')}  alt='meat3' style={{ display: 'flex', aspectRatio: 1,  margin: 5 }}/>
 
-                  <img src={require('./images/webp/1c78d243bd195e6ff002f8fdbc24e5d0@2x 1.webp')}  alt='meat4' style={{ display: 'flex', flex: '30%', aspectRatio: 1,  margin: 5 }}/>
+                  <img src={require('./images/webp/1c78d243bd195e6ff002f8fdbc24e5d0@2x 1.webp')}  alt='meat4' style={{ display: 'flex', aspectRatio: 1,  margin: 5 }}/>
 
                 </div>
 
@@ -526,13 +527,13 @@ export default function HomePage(props) {
             <div className='wrapAwards' style={{ width: "90%", marginLeft: 20, display: 'flex', flexDirection: 'row', justifyContent: 'space-evenly', alignItems: 'center', marginBottom: 50, marginTop: 30, }}>
               {
                 awardArray.map((e, i)=>(
-                  <div className='awardContainer' key={i} style={{ maxWidth:"40%", margin: 10, display: 'flex', flexDirection: 'column', flex: 4,  }}>
+                  <div className='awardContainer' key={i} style={{ maxWidth:"50%", margin: 10, display: 'flex', flexDirection: 'column', flex: 1,  }}>
                   <img src={(`${e.pic}`)} style={{ aspectRatio: 1}}  alt='i'/>
                   {/* <div style={{ width: "100%", backgroundImage: `url(${e.pic})`, backgroundSize: 'contain', backgroundRepeat: 'no-repeat', display: 'flex', }}>
                       
                     </div> */}
                       {/* <img src={e.pic} alt='i' style={{width:"100%", height: "100%", zIndex: 1}}/> */}
-                      <div style={{ fontSize: Height.current/50, marginTop: 15, paddingTop: 10, color: colors.almostWhite, width: "100%", display: 'flex', alignItems: 'center', justifyContent: 'center'  }}>
+                      <div style={{ fontSize: Height.current/50, marginTop: 15, paddingTop: 10, color: colors.almostWhite, width: "100%", display: 'flex', alignItems: 'center', justifyContent: 'center', flexWrap: 'wrap'  }}>
                           {e.name}
                       </div>
                   </div>        
