@@ -234,8 +234,10 @@ export default function HomePage(props) {
           <NavBar Width={Width.current} hamburgerMenu={hamburgerMenu} setHamburgerMenu={setHamburgerMenu} setIsHover={setIsHover} darkMode={darkMode} isHover={isHover}/>
       
       <div style={{ width: "100%",  backgroundColor: colors.grey, display: 'flex', alignItems: 'center', justifyContent: 'flex-end', flexWrap: 'nowrap' }}>
-        <img src={require('./images/webp/clock.webp')}  alt='clock' style={{ aspectRatio: 1, marginRight: 10, zIndex: 10, }}/>
-          <div className='openTime' style={{ width: "40%", fontSize: Height.current/65, display: 'flex',  alignItems: 'center', flexWrap: 'nowrap', marginLeft: 1,  backgroundColor: colors.grey, color: colors.white }}>
+        { Width.current > 600 &&
+          <img src={require('./images/webp/clock.webp')}  alt='clock' style={{ aspectRatio: 1, marginRight: 10, zIndex: 10, }}/>
+        }
+          <div className='openTime' style={{ width: "40%", fontSize: Height.current/65, display: 'flex',  alignItems: 'center', flexWrap: 'nowrap', marginLeft: 1,  backgroundColor: colors.grey, color: colors.white, textAlign: 'right' }}>
 
             Opentime:   Di. - Fr.: 07:00-13:00  und 15:00-18:30.    Sa.:	 07:30	-	12:30
             <button 
@@ -484,7 +486,7 @@ export default function HomePage(props) {
           <div className='fiftyPercent' style={{...styles.fiftyPercentLeft, ...{paddingTop: 30, paddingBottom: 50}}}>
            
            <div style={{...styles.thirdyPercent, ...{display: 'flex', alignItems: 'center', justifyContent: 'center'}}}>
-            <img src={require('./images/genussnetz logo 1.png')} style={{ aspectRatio: 2}} alt='genustnetz'/>
+            <img src={require('./images/genussnetz logo 1.png')} style={{ aspectRatio: 2, maxWidth: '95%'}} alt='genustnetz'/>
            </div>
 
           </div>
@@ -593,7 +595,7 @@ export default function HomePage(props) {
 
           </div>
           <div className='' style={styles.footerColumn}>
-                  <img src={require('./images/logo.png')} style={{ aspectRatio: 1, }} alt='logo'/>
+                  <img src={require('./images/logo.png')} style={{ aspectRatio: 1, marginTop: 10, marginBottom: 10 }} alt='logo'/>
           </div>
           <div className='rowToColumn textSize'  style={{...styles.footerColumn, ...{ flexDirection: 'row', justifyContent: 'center', alignItems: 'center'}}}>
                 <div style={{ width:"100%", fontSize: Height.current/50, color: colors.white, fontWeight: 250, marginTop: 2,  maxWidth: '90%', letterSpacing: 1, marginBottom: 10, display: 'flex', justifyContent: 'center'  }}>
