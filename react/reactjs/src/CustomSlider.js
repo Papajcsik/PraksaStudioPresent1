@@ -30,7 +30,7 @@ const Width = useRef(window.innerWidth);
 
     };
     return (
-      <div style={{height: Height.current/1.2, width:"100%", position: 'relative', paddingBottom: 0  }}>
+      <div style={{height: Height.current/1.2,  width:"100%", position: 'relative', paddingBottom: 0  }}>
         
         <Slider { ...settings } style={{height:"100%", width:"100%", display: 'flex', justifyContent: 'center', alignItems:'center',  position: 'relative'}}>
           

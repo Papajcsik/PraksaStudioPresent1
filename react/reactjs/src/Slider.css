@@ -2,6 +2,8 @@
 
 .custom-slider .slick-list {
     height: 100% !important;
+        min-height: 200px;
+
 }
 
 .custom-slider .slick-track {

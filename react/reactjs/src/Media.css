@@ -1,7 +1,7 @@
 
 @media (max-width: 1000px){
    .section {
-    height: 1000px !important;
+    /*height: 1000px !important;*/
     display: flex;
     flex-direction: column !important;
     align-items: center;
@@ -10,15 +10,15 @@
    /* flex-wrap: wrap !important;*/
    }
    .section2 {
-      height: 700px !important;
-      max-height: 700px !important;
+      /*height: 700px !important;*/
+      /*max-height: 700px !important;*/
       display: flex;
       flex-direction: column !important;
       align-items: center;
       justify-content: center;
    }
    .fiftyPercent {
-      height: 50% !important;
+      /*height: 50% !important;*/
       width: 100% !important;
       display: block;
       position: relative;
@@ -49,10 +49,10 @@
    }
    .footer {
       flex-direction: column !important;
-      height: 600px !important;
+      /*height: 600px !important;*/
    }
    .bottomFooter {
-      height: 100px !important;
+      /*height: 100px !important;*/
       justify-content: space-evenly !important;
    }
    .alignText {
@@ -77,12 +77,12 @@
         justify-content: space-evenly;
       }
    .awardContainer {
-      height: auto;
+      /*height: auto;
       width: 50% !important;
-      display: block;
+      display: block;*/
    }
    .spacer {
-         height: 10% !important;
+         /*height: 10% !important;*/
       }
 
 }
@@ -90,6 +90,7 @@
    .section {
 
       display: flex;
+      justify-content: space-evenly;
       flex-direction: row;
    }
    .button {

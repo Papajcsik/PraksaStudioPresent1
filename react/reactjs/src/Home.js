@@ -95,14 +95,14 @@ export default function HomePage(props) {
     backgroundColor: 'transparent' ,
   },
   section: {
-    height: Height.current/1.2,
+    //height: Height.current/1.2,
     width: "100%",
     minWidth: "100%",
     backgroundColor: colors.almostBlack,
     display: 'flex',
     //flexDirection: 'row',
     flex: 1,
-    flexWrap: 'wrap',
+    flexWrap: 'no-wrap',
 
   },
   smallSection: {
@@ -110,7 +110,7 @@ export default function HomePage(props) {
     width: "100%",
     backgroundColor: colors.almostBlack,
     display: 'flex',
-    height: Height.current/1.4, 
+    //height: Height.current/1.4, 
     //flexDirection: 'column', 
     justifyContent: 'center',
     alignItems: 'center',  
@@ -125,15 +125,16 @@ export default function HomePage(props) {
 
   },
  fiftyPercentRight: {
-    height: "100%",
+   
     width: "50%",
     display: 'flex',
+    flex: 1,
     alignItems: 'center',
     justifyContent: 'flex-Start',
 
   },
   thirdyPercent: {
-    height: "80%",
+    //height: "80%",
     width: "60%",
     textAlign: 'left',
 
@@ -147,7 +148,7 @@ export default function HomePage(props) {
 
   },
   footer: {
-    height: Height.current/5,
+    //height: Height.current/5,
     width: "100%",
     backgroundColor: ( darkMode ? colors.black : colors.redNavBG ),
     display: 'flex',
@@ -231,7 +232,7 @@ export default function HomePage(props) {
           
           <NavBar Width={Width.current} hamburgerMenu={hamburgerMenu} setHamburgerMenu={setHamburgerMenu} setIsHover={setIsHover} darkMode={darkMode} isHover={isHover}/>
       
-      <div style={{ height:'35%', width: "100%",  backgroundColor: colors.grey, display: 'flex', alignItems: 'center', justifyContent: 'flex-end', flexWrap: 'nowrap' }}>
+      <div style={{height :'35%', width: "100%",  backgroundColor: colors.grey, display: 'flex', alignItems: 'center', justifyContent: 'flex-end', flexWrap: 'nowrap' }}>
         <img src={require('./images/webp/clock.webp')}  alt='clock' style={{height: "60%", aspectRatio: 1.2, zIndex: 10, }}/>
           <div className='openTime' style={{ height:'100%', width: "40%", fontSize: Height.current/65, display: 'flex',  alignItems: 'center', flexWrap: 'nowrap', marginLeft: 1,  backgroundColor: colors.grey, color: colors.white }}>
 
@@ -281,7 +282,7 @@ export default function HomePage(props) {
            }
       </div>
 
-      <div style={{height: Height.current/1.2, width:"100%", display: 'flex', justifyContent: 'center', alignItems: 'center', backgroundColor: colors.almostBlack }}>
+      <div style={{ width:"100%", display: 'flex', justifyContent: 'center', alignItems: 'center', backgroundColor: colors.almostBlack }}>
 
           <CustomSlider />
 
@@ -295,9 +296,9 @@ export default function HomePage(props) {
         
       </div>
       { Width.current <= 1400 &&
-        <div style={{...styles.smallSection, ...{height: Height.current/2.5, }}}>
-              <div style={{height: '100%', width:"60%", position: 'relative', backgroundColor: 'transparent' , display: 'flex', justifyContent: 'center', alignItems: 'center'}}>
-                <div style={{height:'100%', width: '70%', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center' }}>
+        <div style={{...styles.smallSection, ...{ }}}>
+              <div style={{width:"60%", position: 'relative', backgroundColor: 'transparent' , display: 'flex', justifyContent: 'center', alignItems: 'center'}}>
+                <div style={{width: '70%', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center' }}>
                   <div style={{color: colors.white, fontWeight: 750, fontSize: Height.current/25, display: 'flex', textAlign: 'center', justifyContent: 'center', marginTop: 20, letterSpacing: 2  }}>
                     Heiko Brath <br/>
                     Metzgermeister
@@ -314,7 +315,7 @@ export default function HomePage(props) {
       <div className='section' style={styles.section}>
         
         <div className='fiftyPercent' data-aos="fade-up" style={{...styles.fiftyPercentLeft}}>
-          <div className='thirdyPercent' style={{...styles.thirdyPercent, ...{height: '95%', display: 'flex', flexDirection: 'column', justifyContent: 'center' }}}>
+          <div className='thirdyPercent' style={{...styles.thirdyPercent, ...{ display: 'flex', flexDirection: 'column', justifyContent: 'center' }}}>
               <div style={{fontSize: Height.current/22, color: colors.white, fontWeight: 750, marginTop: 20}}>
                   Dry aged
               </div>
@@ -327,7 +328,7 @@ export default function HomePage(props) {
                 id latine indoctum complectitur HugoClub Mate mea meliore denique nominavi id. Ohrwurm expetenda nam an, his ei Reise euismod assentior.
               </div>
 
-              <div style={{display: 'flex', height: "10%", width: "80%", flexDirection: 'row', justifyContent: 'space-around', marginBottom: 15 }}>
+              <div style={{display: 'flex', width: "80%", flexDirection: 'row', justifyContent: 'space-around', marginBottom: 15 }}>
                 <RedPressable setModal={setModalState} color={colors.redButtons} props={'Dry Aged'}/>
                 <RedPressable setModal={setModalState} color={colors.redButtons} props={'Alte Wurtz'}/>
               </div>
@@ -337,20 +338,20 @@ export default function HomePage(props) {
         </div>
         
         <div className='fiftyPercent' data-aos="fade-up" style={{...styles.fiftyPercentRight, }}>
-            <div className='thirdyPercent' style={{...styles.thirdyPercent, ...{display: 'flex',  flexDirection: 'column', justifyContent: 'space-between', marginTop: 5,}}}>
-                <div style={{ height: '70%', width: "100%", marginBottom: 10}}>
+            <div className='thirdyPercent' style={{...styles.thirdyPercent, ...{display: 'flex',  flexDirection: 'column', justifyContent: 'space-between', marginTop: 15, marginBottom: 20,}}}>
+                <div style={{ width: "100%", marginBottom: 5}}>
                  
-                  <img src={require('./images/webp/287e4a29fb95622355c7023ec0f765ff@2x 1.webp')}  alt='meat1' style={{height: "100%", width: "100%", aspectRatio: 1 }}/>
+                  <img src={require('./images/webp/287e4a29fb95622355c7023ec0f765ff@2x 1.webp')}  alt='meat1' style={{flex: 4, aspectRatio: 1 }}/>
 
                 </div>
 
                 <div style={{display: 'flex',  flexDirection: 'row', justifyContent: 'space-between', height: '30%', width:'100%',  }}>
                   
-                  <img src={require('./images/webp/93567ed87a1475783cc3a90355825a87@2x 1.webp')}  alt='meat2' style={{height: "100%", aspectRatio: 1, minWidth: '30%', margin: 5 }}/>
+                  <img src={require('./images/webp/93567ed87a1475783cc3a90355825a87@2x 1.webp')}  alt='meat2' style={{flex: 1, aspectRatio: 1,  margin: 5 }}/>
 
-                  <img src={require('./images/webp/d368bea5bcb8ed88cfcf994b7a518068@2x 1.webp')}  alt='meat3' style={{height: "100%", aspectRatio: 1, minWidth: '30%', margin: 5 }}/>
+                  <img src={require('./images/webp/d368bea5bcb8ed88cfcf994b7a518068@2x 1.webp')}  alt='meat3' style={{flex: 1, aspectRatio: 1,  margin: 5 }}/>
 
-                  <img src={require('./images/webp/1c78d243bd195e6ff002f8fdbc24e5d0@2x 1.webp')}  alt='meat4' style={{height: "100%", aspectRatio: 1, minWidth: '30%', margin: 5 }}/>
+                  <img src={require('./images/webp/1c78d243bd195e6ff002f8fdbc24e5d0@2x 1.webp')}  alt='meat4' style={{flex: 1, aspectRatio: 1,  margin: 5 }}/>
 
                 </div>
 
@@ -360,14 +361,14 @@ export default function HomePage(props) {
         </div>
       </div>
       
-      <div  className='section' style={{...styles.section, ...{ backgroundColor: ( darkMode ? colors.almostBlack : colors.redButtons )}}} >
+      <div  className='section' style={{...styles.section, ...{ backgroundColor: ( darkMode ? colors.almostBlack : colors.redButtons ), flexWrap: 'nowrap' }, }} >
         <div className='fiftyPercent' data-aos="fade-right" style={{...styles.fiftyPercentLeft, }}>
           <div className='thirdyPercent' style={styles.thirdyPercent}>
-            <div style={{fontSize: Height.current/22, color: colors.white, fontWeight: 750, marginTop: 10, marginBottom: 20}}>
+            <div style={{fontSize: Height.current/24, color: colors.white, fontWeight: 750, marginTop: 0, marginBottom: 5}}>
                  Buchen Sie den <br/>
                  Grillkurs jetzt
             </div>
-            <ul style={{height: "45%", width: '60%', marginBottom: 50, }}>
+            <ul style={{ width: '60%', marginBottom: 0, }}>
               <li style={styles.listItem}>professioneller Lehrer</li>
               <li style={styles.listItem}>ausgezeichneter Metzger</li>
               <li style={styles.listItem}>1 Tag</li>
@@ -375,7 +376,7 @@ export default function HomePage(props) {
 
             </ul>
 
-              <div style={{display: 'flex', height: "10%", width: "70%", flexDirection: 'row', justifyContent: 'center', alignItems: 'center'}}>
+              <div style={{display: 'flex', width: "70%", flexDirection: 'row', justifyContent: 'center', alignItems: 'center', marginBottom: 10}}>
 
                 <RedPressable setModal={setModalState} color={colors.white} props={'Grillkurs'}/>
               </div>
@@ -384,9 +385,9 @@ export default function HomePage(props) {
           </div>
         </div>
         
-        <div className='fiftyPercent' data-aos="fade-left" style={{...styles.fiftyPercentRight, }}>
+        <div className='fiftyPercent' data-aos="fade-left" style={{...styles.fiftyPercentRight, ...{alignItems: 'end'} }}>
             
-            <img src={require('./images/victoria-shes-UC0HZdUitWY-unsplash copy@2x 1.jpg')} style={{width: "100%",  height: '100%'}} alt='raznjic'/>
+            <img src={require('./images/victoria-shes-UC0HZdUitWY-unsplash copy@2x 1.jpg')} style={{width: "100%"}} alt='raznjic'/>
         </div>
 
         
@@ -408,7 +409,7 @@ export default function HomePage(props) {
                   id latine indoctum complectitur HugoClub Mate mea meliore denique nominavi id. Ohrwurm expetenda nam an, his ei Reise euismod assentior
         </div>
 
-        <div data-aos="fade-up" style={{height:"10%", width: "50%", marginTop: 50,}}>
+        <div data-aos="fade-up" style={{ width: "50%", marginTop: 50,}}>
           <RedPressable setModal={setModalState} color={colors.redButtons} props={'Das Handwerk'}/>
         </div>
 
@@ -418,7 +419,7 @@ export default function HomePage(props) {
       </div>
       <div style={{...styles.section, display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
         
-        <div style={{ width: "100%", height: "30%", display: 'flex', justifyContent: 'center', alignItems: 'center'}}>
+        <div style={{ width: "100%", display: 'flex', justifyContent: 'center', alignItems: 'center', marginTop: 20, marginBottom: 20,}}>
 
           <HorizontalSpacer />
         </div>
@@ -428,23 +429,23 @@ export default function HomePage(props) {
       </div>
 
       <div style={{...styles.section, ...{ backgroundColor: ( darkMode ? colors.almostBlack : colors.redNavBG )}}} className='section'>
-        <div className='fiftyPercent' data-aos="fade-right" style={styles.fiftyPercentLeft}>
-          <img src={require('./images/4541cc99083f618a22b772228f8a9698@2x 1.jpg')} style={{height:"100%", width: "100%", resizeMode: 'contain' }} alt='fuszer'/>
+        <div className='fiftyPercent' data-aos="fade-right" style={{...styles.fiftyPercentLeft, ...{alignItems: 'flex-start'}}}>
+          <img src={require('./images/4541cc99083f618a22b772228f8a9698@2x 1.jpg')} style={{width: "100%", resizeMode: 'contain' }} alt='fuszer'/>
         </div>
         <div className='fiftyPercent' data-aos="fade-left" style={{...styles.fiftyPercentRight, ...{display: 'flex', alignItems: 'center'}}}>
-            <div style={{...styles.thirdyPercent, ...{ marginLeft: 100, height: "60%", display: 'flex', flexDirection: 'column', justifyContent: 'space-evenly' }}}>
+            <div style={{...styles.thirdyPercent, ...{ marginLeft: 100, display: 'flex', flexDirection: 'column', justifyContent: 'space-evenly' }}}>
 
 
-                  <div style={{fontSize: Height.current/24, color: colors.white, fontWeight: 750,  }}>
+                  <div style={{fontSize: Height.current/24, color: colors.white, fontWeight: 750, marginTop: 30 }}>
                             Custome spices for your meat
                   </div>
 
-                  <div style={{fontSize: Height.current/29, color: colors.white, fontWeight: 550, }}>
+                  <div style={{fontSize: Height.current/29, color: colors.white, fontWeight: 550,  marginTop: 10,  }}>
                             Turnbeutel nostrud exercitation ullamco <br/>
                             Sprechen Sie deutsch
                   </div>
 
-                  <div style={{fontSize: Height.current/50, color: colors.white, fontWeight: 350, marginTop: 10, maxWidth: '90%', letterSpacing: 1,  }}>
+                  <div style={{fontSize: Height.current/50, color: colors.white, fontWeight: 350, marginTop: 20, marginBottom: 30, maxWidth: '90%', letterSpacing: 1,  }}>
                             Odio principes iracundia Müller Rice pri. Ut vel solum mandamus, Kartoffelkopf natum adversarium ei ius, diam Schmetterling honestatis eum.<br/><br/>
                             Wiener Schnitzel amet, consectetur Handtasche elit, sed do eiusmod tempor Stuttgart ut labore et dolore magna 99 Luftballons Ut enim ad minim veniam, Turnbeutel nostrud exercitation ullamco laboris nisi Sprechen Sie deutsch aliquip ex ea commodo consequat. 
                   </div>
@@ -454,7 +455,7 @@ export default function HomePage(props) {
 
       </div>
       
-      <div style={{...styles.smallSection, ...{height: Height.current}}}>
+      <div style={{...styles.smallSection, ...{}}}>
 
         {/* <MyParallax /> */}
           <div style={{backgroundImage: `url(${plateImage})` , backgroundAttachment: 'fixed', backgroundPosition: 'center', backgroundSize: 'cover', width: "100%", height: Height.current,
@@ -476,24 +477,24 @@ export default function HomePage(props) {
 
       <div className='section2' style={{ ...styles.smallSection, ...{ flexDirection: 'column', justifyContent: 'space-evenly', flexWrap: 'no-wrap'  }}}>
               
-        <div className='rowToColumn' style={{height: '80%', width: "100%", display: 'flex', flexDirection: 'row'}}>
+        <div className='rowToColumn' style={{ width: "100%", display: 'flex', flexDirection: 'row'}}>
 
         
-          <div className='fiftyPercent' style={{...styles.fiftyPercentLeft, ...{height:"80%"}}}>
+          <div className='fiftyPercent' style={{...styles.fiftyPercentLeft, ...{paddingTop: 30, paddingBottom: 50}}}>
            
            <div style={{...styles.thirdyPercent, ...{display: 'flex', alignItems: 'center', justifyContent: 'center'}}}>
-            <img src={require('./images/genussnetz logo 1.png')} style={{height: "50%", aspectRatio: 2}} alt='genustnetz'/>
+            <img src={require('./images/genussnetz logo 1.png')} style={{ aspectRatio: 2}} alt='genustnetz'/>
            </div>
 
           </div>
-          <div className='fiftyPercent' style={{...styles.fiftyPercentRight, ...{height:"80%"}}}>
+          <div className='fiftyPercent' style={{...styles.fiftyPercentRight, ...{}}}>
             <div style={{...styles.thirdyPercent, ...{}}}>
               
               <div style={{fontSize: Height.current/22, color: colors.white, fontWeight: 750, marginTop: 70, display: 'flex', alignItems: 'center', justifyContent: 'center'}}>
                   Metzgerei Brath ist Mitglied <br/>
                   im Genussnetzwerk
               </div>
-              <div style={{height: "30%", width: "100%", display: 'flex', justifyContent: 'center', marginBottom: 10}}>
+              <div style={{ width: "100%", display: 'flex', justifyContent: 'center', marginBottom: 10}}>
                 <RedPressable setModal={setModalState} color={colors.redButtons} props={'Gehen zu site'}/>
               </div>
 
@@ -502,7 +503,7 @@ export default function HomePage(props) {
         
       </div>
       
-      <div style={{ width: "100%", height: "20%", display: 'flex', justifyContent: 'center', alignItems: 'center'}}>
+      <div style={{ width: "100%", display: 'flex', justifyContent: 'center', alignItems: 'center', marginTop: 20, marginBottom: 20}}>
 
         <HorizontalSpacer/>
 
@@ -512,7 +513,7 @@ export default function HomePage(props) {
 
 
       <div className='section2' style={{ ...styles.smallSection, ...{ flexDirection: 'column', justifyContent: 'space-evenly', }}}>
-        <div className='rowToColumn' style={{height: '80%', width: "100%", display: 'flex', flexDirection: 'row', justifyContent: 'space-evenly', alignItems: 'center' }}>
+        <div className='rowToColumn' style={{ width: "100%", display: 'flex', flexDirection: 'row', justifyContent: 'space-evenly', alignItems: 'center' }}>
           <div className='fiftyPercent' style={{...styles.fiftyPercentLeft, ...{ display: 'flex', alignItems: 'center', justifyContent: 'center', flex: 1 }}}>
             
             <div style={{fontSize: Height.current/22, color: colors.white, fontWeight: 750, marginBottom: 20 }}>
@@ -522,15 +523,16 @@ export default function HomePage(props) {
           </div>
           <div className='fiftyPercent' style={{...styles.fiftyPercentRight, ...{ display: 'flex', alignItems: 'center', flex: 2}}}>
             
-            <div className='wrapAwards' style={{height: "80%", width: "90%", marginLeft: 20, display: 'flex', flexDirection: 'row', justifyContent: 'space-evenly', alignItems: 'center', }}>
+            <div className='wrapAwards' style={{ width: "90%", marginLeft: 20, display: 'flex', flexDirection: 'row', justifyContent: 'space-evenly', alignItems: 'center', marginBottom: 50, marginTop: 30, }}>
               {
                 awardArray.map((e, i)=>(
-                  <div className='awardContainer' key={i} style={{width: "20%", aspectRatio: 1, maxWidth:"40%", margin: 10, display: 'block', }}>
-                  <div style={{height: "100%", width: "100%", backgroundImage: `url(${e.pic})`, backgroundSize: 'contain', backgroundRepeat: 'no-repeat', display: 'flex', }}>
+                  <div className='awardContainer' key={i} style={{ maxWidth:"40%", margin: 10, display: 'flex', flexDirection: 'column', flex: 4,  }}>
+                  <img src={(`${e.pic}`)} style={{ aspectRatio: 1}}  alt='i'/>
+                  {/* <div style={{ width: "100%", backgroundImage: `url(${e.pic})`, backgroundSize: 'contain', backgroundRepeat: 'no-repeat', display: 'flex', }}>
                       
-                    </div>
+                    </div> */}
                       {/* <img src={e.pic} alt='i' style={{width:"100%", height: "100%", zIndex: 1}}/> */}
-                      <div style={{position: 'relative', zIndex: 2, fontSize: Height.current/50, marginTop: 15, paddingTop: 10, color: colors.almostWhite, height:"40%", width: "100%", display: 'flex', alignItems: 'center', justifyContent: 'center'  }}>
+                      <div style={{ fontSize: Height.current/50, marginTop: 15, paddingTop: 10, color: colors.almostWhite, width: "100%", display: 'flex', alignItems: 'center', justifyContent: 'center'  }}>
                           {e.name}
                       </div>
                   </div>        
@@ -541,7 +543,7 @@ export default function HomePage(props) {
           </div>
         </div>
         
-        <div style={{ width: "100%", height: "30%", display: 'flex', justifyContent: 'center', alignItems: 'center'}}>
+        <div style={{ width: "100%", display: 'flex', justifyContent: 'center', alignItems: 'center'}}>
 
           <HorizontalSpacer/>
         </div>
@@ -549,15 +551,15 @@ export default function HomePage(props) {
       </div>
 
 
-      <div style={{...styles.section , ...{height: Height.current, flexDirection: 'column', justifyContent: 'center', alignItems: 'center'}}}>
-             <div style={{position: 'relative', zIndex: 2, fontSize: Height.current/60, marginTop: 5, color: colors.almostWhite, height:"10%", width: "100%", display: 'flex', alignItems: 'center', justifyContent: 'center'  }}>
+      <div style={{...styles.section , ...{ flexDirection: 'column', justifyContent: 'center', alignItems: 'center'}}}>
+             <div style={{position: 'relative', zIndex: 2, fontSize: Height.current/60, marginTop: 5, color: colors.almostWhite, width: "100%", display: 'flex', alignItems: 'center', justifyContent: 'center'  }}>
                 Empfehlungs
              </div>
              <div style={{fontSize: Height.current/24, color: colors.white, fontWeight: 750, marginBottom: 25, }}>
                          Was die Leute über uns sagen   
               </div>
 
-              <div style={{height:'65%', width: "80%", display: 'flex', flexDirection: 'row', justifyContent: 'space-evenly', alignItems: 'center' }}>
+              <div style={{ width: "80%", display: 'flex', flexDirection: 'row', justifyContent: 'space-evenly', alignItems: 'center' }}>
                   {/* <button onClick={()=>{scroll('left')}} style={{height:"6%", aspectRatio: 1.5, backgroundColor: 'transparent', borderWidth: 0 }}>
                     <img src={require('./images/goLeft.png')}  style={{height:"100%", width:"100%"}} alt='left'/>
                   </button> */}
@@ -568,7 +570,7 @@ export default function HomePage(props) {
                     <img src={require('./images/goRight.png')}  style={{height:"100%", width:"100%"}} alt='left'/>
                   </button> */}
               </div>
-            <div style={{height: "10%", width:"50%", marginBottom: 20, marginTop: -40}}>
+            <div style={{ width:"50%", marginBottom: 20, marginTop: -40}}>
               <RedPressable setModal={setModalState} color={colors.redButtons} props={'Alle Berichte'}/>
               <br/>
             </div>              
@@ -590,7 +592,7 @@ export default function HomePage(props) {
 
           </div>
           <div className='' style={styles.footerColumn}>
-                  <img src={require('./images/logo.png')} style={{height:"90%", aspectRatio: 1, }} alt='logo'/>
+                  <img src={require('./images/logo.png')} style={{ aspectRatio: 1, }} alt='logo'/>
           </div>
           <div className='rowToColumn textSize'  style={{...styles.footerColumn, ...{ flexDirection: 'row', justifyContent: 'center', alignItems: 'center'}}}>
                 <div style={{ width:"100%", fontSize: Height.current/50, color: colors.white, fontWeight: 250, marginTop: 2,  maxWidth: '90%', letterSpacing: 1, marginBottom: 10, display: 'flex', justifyContent: 'center'  }}>
@@ -600,7 +602,7 @@ export default function HomePage(props) {
 
           </div>
       </div>
-      <div className='bottomFooter footer' style={{height:"30%", width: '100%', backgroundColor: colors.deepRed, display: 'flex', flexDirection: 'row', flexWrap: 'nowrap', justifyContent: 'space-evenly'}}>
+      <div className='bottomFooter footer' style={{ width: '100%', backgroundColor: colors.deepRed, display: 'flex', flexDirection: 'row', flexWrap: 'nowrap', justifyContent: 'space-evenly'}}>
                 <div style={{fontSize: Height.current/65, color: colors.almostWhite, fontWeight: 250, marginTop: 2, marginLeft: 0,  maxWidth: '90%', letterSpacing: 1, marginBottom: 2,  }}>
                   © 2020 by Metzgerei Heiko Brath  GmbH, Deutschland                
                 </div>

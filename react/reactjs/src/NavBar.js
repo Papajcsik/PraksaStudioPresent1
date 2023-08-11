@@ -162,7 +162,7 @@ const NavBar = ({ Width, hamburgerMenu, setHamburgerMenu, setIsHover, darkMode, 
            { Width < 1000 &&
               <div style={{height:'100%', width:"90%", display: 'flex', flexDirection: 'row', justifyContent: 'flex-end', alignItems: 'center', flexWrap: 'nowrap'}}>
                 <button onClick={()=>{}}         
-                style={{...styles.navButton, ...{display: 'flex', flexDirection: 'row', justifyContent: 'space-evenly', alignItems: 'center', marginRight:"15%"}}}>
+                style={{...styles.navButton, ...{display: 'flex', flexDirection: 'row', justifyContent: 'space-evenly', alignItems: 'center', marginRight:"15%", }}}>
                     <img src={require('./images/Frame.png')}  alt='pdf' style={{height: "30%", aspectRatio: 1, paddingRight: 10,  }}/>
 
                       download 
